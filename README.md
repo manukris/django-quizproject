@@ -1,0 +1,2 @@
+# nizamproject
+django-project
