@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Registration 2</title>
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="theme-color" content="#fec100">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#fec100">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#fec100">
+    <!-- bootstrap css  -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Slick styles -->
+    {% load static  %}
+
+    <link rel="stylesheet" href="{% static 'css/slick.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/slick-theme.css' %}">
+    <!-- Custom styles -->
+
+    <link rel="stylesheet" href="{% static 'css/intlTelInput.css' %} %}">
+    <!-- Custom styles -->
+
+    <link rel="stylesheet" href="{% static 'css/main.min.css'%}">
+</head>
+<body>
+<!-- HEADER -->
+
+<header id="header" class="header">
+    <div class="container-fluid">
+        <div class="row">
+            <nav id="navigation" class=" navigation navbar navbar-expand-lg navbar-light ">
+                <button class="navbar-toggler" type="button">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="logo-wrap">
+                    <a href="index.html">
+                        <img src="img/logo-transparent.png" alt="logo">
+                    </a>
+                </div>
+                <div class=" collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                    <ul class="nav-list navbar-nav">
+                        <li class="nav-item ">
+                            <a href="home.html" class="nav-link">Home </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="about.html" class="nav-link">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="contact.html" class="nav-link">Contact Us</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Info
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item active" href="#">Editing Services</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                            </div>
+                        </li>
+                        <li class="nav-item nav-log">
+                            <i class="ic ic-nav-log"></i>
+                            <a href="#" class="nav-link">Login </a>
+                            /
+                            <a href="registration.html" class="nav-link active"> Register</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+<div class="overlay"></div>
+<!-- HEADER END -->
+<!-- CONTENT -->
+<section class="section-item registration-page ">
+    <div class="container">
+        <div class="row">
+            <div class="section-content">
+                <div class="title-wrap">
+                    <h2 class="section-title title-line">Registration</h2>
+                </div>
+
+
+                <form action="#" class="profile-form">
+
+               
+
+                     <div class="row content-line">
+                        <div class="col-12">
+                            <h2 class="section-title section-title-sm">Qualifications</h2>
+                            <button class="btn btn-shadow-not btn-white btn-add"><span>+ </span> Add</button>
+                        </div>
+                        <div class="form-group form-group-mb col-lg-6">
+                            <label for="name" class="input-sub-title">UNIVERSITY</label>
+                            <input type="text" class="form-control light-input" id="name" required
+                                   placeholder=" ">
+                        </div>
+                        <div class="form-group form-group-mb col-lg-6">
+                            <label for="level" class="input-sub-title">degree level</label>
+                            <input type="text" class="form-control light-input" id="level" required
+                                   placeholder=" ">
+                        </div>
+                        <div class="form-group form-group-mb col-lg-6">
+                            <label for="degree" class="input-sub-title">DEGREE</label>
+                            <select name="degree" id="degree" class="form-control light-input select">
+                                <option></option>
+                                <option value="">degree</option>
+                                <option value="">degree</option>
+                            </select>
+                        </div>
+                        <div class="clean-input col-lg-6"></div>
+                        <div class="form-group form-group-mb col-lg-6">
+                            <label for="month" class="input-sub-title">STARTING MONTH</label>
+                            <select name="month" id="month" class="form-control light-input select">
+                                <option selected value></option>
+                                <option value="">STARTING MONTH</option>
+                                <option value="">STARTING MONTH</option>
+                            </select>
+                        </div>
+                        <div class="form-group form-group-mb col-lg-6">
+                            <label for="startign-year" class="input-sub-title">startign year</label>
+                            <select name="startign-yea" id="startign-year"
+                                    class="form-control light-input select">
+                                <option selected value></option>
+                                <option value="">startign year</option>
+                                <option value="">startign year</option>
+                            </select>
+                        </div>
+                        <div class="form-group form-group-mb col-lg-6">
+                            <label for="to-month" class="input-sub-title">TO MONTH</label>
+                            <select name="to-month" id="to-month" class="form-control light-input select">
+                                <option selected value></option>
+                                <option value="">TO MONTH</option>
+                                <option value="">TO MONTH</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group form-group-mb col-lg-6">
+                            <label for="to-year" class="input-sub-title">to year</label>
+                            <select name="to-year" id="to-year" class="form-control light-input select">
+                                <option selected value></option>
+                                <option value="">to year</option>
+                                <option value="">to year</option>
+                            </select>
+                        </div>
+    
+                        <div class="col-12">
+                            <div class="form-check-wraper">
+                                <p class="input-sub-title ">Qualifications Document</p>
+                                <div class="form-file form-group-mb">
+                                    <input class="file-input" type="file" id="document">
+                                    <label class="file-label" for="document"><span>+</span> Add
+                                        document</label>
+                                    <span class="file-name"></span>
+                                </div>
+                                <button class="btn btn-action btn-shadow-not">Save</button>
+                                <button class="btn btn-action btn-shadow-not btn-cancel">Cancel</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                   
+
+                    <div class="row content-line">
+                        <div class="col-12">
+                            <div class="form-check-wraper">
+                                <h2 class="section-title section-title-sm">Experiences</h2>
+                                <button class="btn btn-shadow-not btn-white btn-add"><span>+ </span> Add
+                                </button>
+                            </div>
+                        </div>
+                        <div class="form-group form-group-mb col-lg-6">
+                            <label for="company" class="input-sub-title">COMPANY</label>
+                            <input type="text" class="form-control light-input" id="company">
+                        </div>
+                        <div class="form-group form-group-mb col-lg-6">
+                            <label for="title" class="input-sub-title">TITLE</label>
+                            <input type="text" class="form-control light-input" id="title">
+                        </div>
+                        <div class="form-group form-group-mb col-lg-6 ml-0">
+                            <label for="location" class="input-sub-title">LOCATION</label>
+                            <input type="text" class="form-control light-input" id="location">
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group form-group-mb form-full ">
+                                <label for="description" class="input-sub-title">DESCRIPTION</label>
+                                <textarea id="description" class="textarea"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group form-group-mb col-lg-6">
+                            <label for="starting-month" class="input-sub-title">STARTING MONTH</label>
+                            <select name="starting-month" id="starting-month"
+                                    class="form-control light-input select">
+                                <option value=""></option>
+                                <option value="">STARTING MONTH</option>
+                                <option value="">STARTING MONTH</option>
+                            </select>
+                        </div>
+                        <div class="form-group form-group-mb col-lg-6">
+                            <label for="startign-year2" class="input-sub-title">STARTIGN YEAR</label>
+                            <select name="starting-month" id="startign-year2"
+                                    class="form-control light-input select">
+                                <option value=""></option>
+                                <option value="">STARTIGN YEAR</option>
+                                <option value="">STARTIGN YEAR</option>
+                            </select>
+                        </div>
+                        <div class="form-group form-group-mb col-lg-6">
+                            <label for="to-month2" class="input-sub-title">TO MONTH</label>
+                            <select name="starting-month" id="to-month2"
+                                    class="form-control light-input select">
+                                <option value=""></option>
+                                <option value="">STARTING MONTH</option>
+                                <option value="">STARTING MONTH</option>
+                            </select>
+                        </div>
+                        <div class="form-group form-group-mb col-lg-6">
+                            <label for="to-year2" class="input-sub-title">TO YEAR</label>
+                            <select name="starting-month" id="to-year2"
+                                    class="form-control light-input select">
+                                <option value=""></option>
+                                <option value="">to year</option>
+                                <option value="">to year</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-check-wraper">
+                                <div class="form-check form-check-inline current">
+                                    <input class="form-check-input" type="checkbox" id="current">
+                                    <label class="form-check-label" for="current">Is current</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-action btn-shadow-not">Save</button>
+                            <button class="btn btn-action btn-shadow-not btn-cancel">Cancel</button>
+                        </div>
+                    </div>
+                    <div class="row content-line">
+                        <div class="col-12">
+                            <div class="title-wrap">
+                                <h2 class="section-title title-line">Submit Application</h2>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-check form-check-inline mb-0">
+                                <input class="form-check-input" type="checkbox" id="agree">
+                                <label class="form-check-label agree-label" for="agree">I agree to the <a
+                                        href="#"
+                                        target="_blank">Terms
+                                    and Conditions</a></label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="input-wrap">
+                                <input type="submit" class="btn btn-shadow-not btn-full"
+                                       value=" Complete ">
+                                <span class="devider">OR</span>
+                                <input type="submit" class="btn btn-shadow-not btn-full btn-white"
+                                       value=" Save and Continue Leter ">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- CONTENT END -->
+<!-- FOOTER -->
+<footer id="footer" class="footer">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-4 justify-content-end">
+                <div class="logo-wrap footer-logo">
+                    <a href="#">
+                        <img src="img/logo-transparent.png" alt="logo">
+                    </a>
+                </div>
+                <p class="copy">© <span id="year"></span> All Rights Reserved Terms of Use and Privacy Policy
+                </p>
+            </div>
+
+            <div class="col-lg-4">
+                <h3 class="section-title">Contact Us</h3>
+
+                <p class="contact-info"><i class="ic ic-map"></i>B-8 Complex Ahmed Al Jaber Street, 4th Floor,
+                    Office 6, Kuwait City, Kuwait</p>
+                <a href="mailto:info@educationstudio.com" class="contact-info"> <i class="ic ic-mail"></i>info@educationstudio.com</a>
+
+                <ul class="social-list">
+                    <li class="social-item">
+                        <a href="" target="_blank" class="social-link">
+                            <i class="ic ic-in"></i>
+                        </a>
+                    </li>
+                    <li class="social-item">
+                        <a href="" target="_blank" class="social-link">
+                            <i class="ic ic-tw"></i>
+                        </a>
+                    </li>
+                    <li class="social-item">
+                        <a href="" target="_blank" class="social-link">
+                            <i class="ic ic-fb"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-4">
+                <h3 class="section-title">Newsletter</h3>
+
+                <p class="contact-info contact-info-lg"> Enter your Email adress to get the latest Education
+                    Studio news, special events and offers delivered right to your inbox.</p>
+                <form action="#" id="form-subscribe" class="form-subscribe">
+                    <div class="form-group ">
+                        <input type="email" class="form-control form-input" placeholder="Your E-mail">
+                        <input type="submit" class="form-control  form-button" value="SUBSCRIBE">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- FOOTER END -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<!-- bootstrap js cdn -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<!-- slick scripts -->
+
+
+<script src="{% static 'js/slick.min.js' %}"></script>
+<!-- jsintlTelInput scripts -->
+
+<script src="{% static 'js/intlTelInput.min.js' %}"></script>
+
+
+<script type="text/javascript">
+
+
+
+
+$(document).ready(function () {
+
+
+   
+    $(".btn-add").click(function(){
+        var value = '<div class="row content-line">'
+        value +=  $(this).parents(".content-line").html();
+        value += '</div>'
+        console.log(value);
+
+        $(this).parents(".content-line").after(value);
+    });
+
+    $("body").on("click",".btn-cancel",function(){ 
+          $(this).parents(".content-line").remove();
+      });
+
+
+
+});
+    
+
+
+
+
+
+
+</script>
+
+
+
+
+<!-- custom scripts -->
+
+
+<script src="{% static 'js/scripts.min.js' %}"></script>
+
+
+
+
+</body>
+</html>
