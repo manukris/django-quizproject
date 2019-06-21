@@ -16,6 +16,8 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" />
     <!--Slick styles -->
     {% load static  %}
 
@@ -24,7 +26,7 @@
     <link rel="stylesheet" href="{% static 'css/slick-theme.css' %}">
     <!-- Custom styles -->
 
-    <link rel="stylesheet" href="{% static 'css/intlTelInput.css' %} %}">
+    <link rel="stylesheet" href="{% static 'css/intlTelInput.css' %}">
     <!-- Custom styles -->
 
     <link rel="stylesheet" href="{% static 'css/main.min.css'%}">
@@ -41,7 +43,7 @@
                 </button>
                 <div class="logo-wrap">
                     <a href="index.html">
-                        <img src="img/logo-transparent.png" alt="logo">
+                        <img src="{% static 'img/logo-transparent.png' %}" alt="logo">
                     </a>
                 </div>
                 <div class=" collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
@@ -119,37 +121,24 @@
                         <div class="clean-input col-lg-6"></div>
                         <div class="form-group form-group-mb col-lg-6">
                             <label for="month" class="input-sub-title">STARTING MONTH</label>
-                            <select name="month" id="month" class="form-control light-input select">
-                                <option selected value></option>
-                                <option value="">STARTING MONTH</option>
-                                <option value="">STARTING MONTH</option>
-                            </select>
+                            <input name="month" id="month" class="form-control light-input  monthpicker" >
+
                         </div>
                         <div class="form-group form-group-mb col-lg-6">
                             <label for="startign-year" class="input-sub-title">startign year</label>
-                            <select name="startign-yea" id="startign-year"
-                                    class="form-control light-input select">
-                                <option selected value></option>
-                                <option value="">startign year</option>
-                                <option value="">startign year</option>
-                            </select>
+                            <input name="startign-yea" id="startign-year"
+                                    class="form-control light-input yearpicker" >
                         </div>
                         <div class="form-group form-group-mb col-lg-6">
                             <label for="to-month" class="input-sub-title">TO MONTH</label>
-                            <select name="to-month" id="to-month" class="form-control light-input select">
-                                <option selected value></option>
-                                <option value="">TO MONTH</option>
-                                <option value="">TO MONTH</option>
-                            </select>
+                            <input name="to-month" id="to-month" class="form-control light-input select monthpicker">
+
                         </div>
 
                         <div class="form-group form-group-mb col-lg-6">
                             <label for="to-year" class="input-sub-title">to year</label>
-                            <select name="to-year" id="to-year" class="form-control light-input select">
-                                <option selected value></option>
-                                <option value="">to year</option>
-                                <option value="">to year</option>
-                            </select>
+                            <input name="to-year" id="to-year" class="form-control light-input select yearpicker">
+
                         </div>
     
                         <div class="col-12">
@@ -161,6 +150,7 @@
                                         document</label>
                                     <span class="file-name"></span>
                                 </div>
+
                                 <button class="btn btn-action btn-shadow-not">Save</button>
                                 <button class="btn btn-action btn-shadow-not btn-cancel">Cancel</button>
                             </div>
@@ -350,7 +340,7 @@
 
 <script src="{% static 'js/intlTelInput.min.js' %}"></script>
 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 <script type="text/javascript">
 
 
@@ -358,6 +348,22 @@
 
 $(document).ready(function () {
 
+
+    $(".monthpicker").datepicker({
+         autoclose: true,
+         minViewMode: 1,
+         format: 'mm'
+
+
+    });
+
+    $(".yearpicker").datepicker({
+         autoclose: true,
+         minViewMode: 2,
+         format: 'yyyy'
+
+
+    });
 
    
     $(".btn-add").click(function(){
