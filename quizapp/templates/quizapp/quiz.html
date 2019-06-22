@@ -1,0 +1,121 @@
+{% extends "basetemplate.html" %}
+
+
+{% block title %} Quiz {% endblock %}
+
+
+{% block content %}
+
+{% load static %}
+<section class="section-item examination-page">
+    <div class="container">
+        <div class="row">
+            <div class="section-content">
+                <div class="title-wrap">
+                    <h2 class="section-title title-line">Examination</h2>
+                    <div class="time">
+                        <span id="time-left" class="time-left">0:23</span>
+                        Time Remaining
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="quiz-title">(<span >1</span> / <span >3</span>) Questions</div>
+                        <div class="quiz-item"><span id="quiz-number">7</span>. DIFFICULT, answer (c)</div>
+                        <form  name="quizform" action="#" >
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="quiz" id="1" value="1">
+                                    A Lorem ipsum dolor sit amet.
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="quiz" id="2" value="2">
+                                    B
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="quiz" id="3" value="3">
+                                    C
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="quiz" id="4" value="4">
+                                    D
+                                </label>
+                            </div>
+                            <input type="submit" class="btn btn-shadow-not" value=" Next ">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-30">
+            <div class="section-content why-chose">
+                <div class="title-wrap">
+                    <h2 class="section-title title-line">Why Chose Us?</h2>
+                </div>
+                <div class="row">
+                    <div class="why-chose-slider">
+                        <div class="col-4">
+                            <div class="wraper">
+                                <div class="img-wrap">
+
+                                    <img src="{% static 'img/choose-us-1.svg' %}" alt="alt">
+                                </div>
+                                <p class="text">Expirienced editors and prof-readers in your academic
+                                    field.</p>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="wraper">
+                                <div class="img-wrap">
+                                    <img src=" {% static 'img/choose-us-2.svg' %}" alt="alt">
+                                </div>
+                                <p class="text">Lowest prices <br> in the market.</p>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="wraper">
+                                <div class="img-wrap">
+                                    <img src="{% static 'img/choose-us-3.svg' %}" alt="alt">
+                                </div>
+                                <p class="text">Security, Confidentiality and money back guaranteed.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+  var distance = 30;
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+
+
+  // Find the distance between now and the count down date
+
+
+  // Time calculations for days, hours, minutes and seconds
+
+  var seconds = distance--
+
+  // Output the result in an element with id="demo"
+  document.getElementById("time-left").innerHTML =seconds + "s ";
+
+  // If the count down is over, write some text
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("time-left").innerHTML = "EXPIRED";
+   // alert("Time Up');
+  }
+}, 1000);
+</script>
+<!-- CONTENT END -->
+{% endblock %}
