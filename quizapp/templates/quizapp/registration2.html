@@ -12,54 +12,50 @@
                     <h2 class="section-title title-line">Registration</h2>
                 </div>
 
-
-                <form action="http://localhost/test.php" class="profile-form" method="post" ENCTYPE="multipart/form-data">
-
-               
-
-                     <div class="row content-line">
+                     <form class="row content" method="post" ENCTYPE="multipart/form-data">
                         <div class="col-12">
                             <h2 class="section-title section-title-sm">Qualifications</h2>
-                            <button class="btn btn-shadow-not btn-white btn-add"><span>+ </span> Add</button>
+                            <button type="button" class="btn btn-shadow-not btn-white btn-add"><span>+ </span> Add</button>
                         </div>
+
+
                         <div class="form-group form-group-mb col-lg-6">
-                            <label for="name" class="input-sub-title">UNIVERSITY</label>
-                            <input type="text" class="form-control light-input" id="name" name="name[]"  required
+                            <label for="university" class="input-sub-title">UNIVERSITY</label>
+                            <input type="text" class="form-control light-input" id="university" name="university"  required
                                    placeholder=" ">
                         </div>
                         <div class="form-group form-group-mb col-lg-6">
                             <label for="level" class="input-sub-title">degree level</label>
-                            <input type="text" class="form-control light-input" id="level" required
+                            <input type="text" name="degreelevel" class="form-control light-input" id="level" required
                                    placeholder=" ">
                         </div>
                         <div class="form-group form-group-mb col-lg-6">
                             <label for="degree" class="input-sub-title">DEGREE</label>
-                            <select name="degree[]" id="degree" class="form-control light-input select">
+                            <select name="degree" id="degree" class="form-control light-input select">
                                 <option></option>
-                                <option value="">degree</option>
-                                <option value="">degree</option>
+                                <option value="deg1">degree</option>
+                                <option value="deg2">degree</option>
                             </select>
                         </div>
                         <div class="clean-input col-lg-6"></div>
                         <div class="form-group form-group-mb col-lg-6">
                             <label for="month" class="input-sub-title">STARTING MONTH</label>
-                            <input name="month" id="month" class="form-control light-input  monthpicker" >
+                            <input name="startmonth" id="month" class="form-control light-input  monthpicker" >
 
                         </div>
                         <div class="form-group form-group-mb col-lg-6">
                             <label for="startign-year" class="input-sub-title">startign year</label>
-                            <input name="startign-yea" id="startign-year"
+                            <input name="startyear" id="startign-year"
                                     class="form-control light-input yearpicker" >
                         </div>
                         <div class="form-group form-group-mb col-lg-6">
                             <label for="to-month" class="input-sub-title">TO MONTH</label>
-                            <input name="to-month" id="to-month" class="form-control light-input select monthpicker">
-
+                            <input name="endmonth" id="to-month" class="form-control light-input select monthpicker">
                         </div>
-
+                        <input type="hidden" value="1" name="userid">
                         <div class="form-group form-group-mb col-lg-6">
                             <label for="to-year" class="input-sub-title">to year</label>
-                            <input name="to-year" id="to-year" class="form-control light-input select yearpicker">
+                            <input name="endyear" id="to-year" class="form-control light-input select yearpicker">
 
                         </div>
     
@@ -67,26 +63,30 @@
                             <div class="form-check-wraper">
                                 <p class="input-sub-title ">Qualifications Document</p>
                                 <div class="form-file form-group-mb">
-                                    <input class="file-input" name="doc[]" type="file" id="document">
+                                    <input class="file-input" name="document" type="file" id="document">
                                     <label class="file-label" for="document"><span>+</span> Add
                                         document</label>
                                     <span class="file-name"></span>
                                 </div>
 
-                                <button class="btn btn-action btn-shadow-not">Save</button>
-                                <button class="btn btn-action btn-shadow-not btn-cancel">Cancel</button>
+                                {% csrf_token %}
+
+                                <button type="submit" class="btn btn-action btn-shadow-not btn-save">Save</button>
+
                             </div>
                         </div>
 
-                    </div>
 
-                   
 
-                    <div class="row content-line">
+                    </form>
+
+                   <div class="row content-line" ></div>
+
+                    <form class="row content" method="post">
                         <div class="col-12">
                             <div class="form-check-wraper">
                                 <h2 class="section-title section-title-sm">Experiences</h2>
-                                <button class="btn btn-shadow-not btn-white btn-add"><span>+ </span> Add
+                                <button type="button" class="btn btn-shadow-not btn-white btn-add"><span>+ </span> Add
                                 </button>
                             </div>
                         </div>
@@ -153,10 +153,11 @@
                             </div>
                         </div>
                         <div class="col-12">
-                            <button class="btn btn-action btn-shadow-not">Save</button>
-                            <button class="btn btn-action btn-shadow-not btn-cancel">Cancel</button>
+                             {% csrf_token %}
+                            <button class="btn btn-action btn-shadow-not btn-save" >Save</button>
+
                         </div>
-                    </div>
+                    </form>
                     <div class="row content-line">
                         <div class="col-12">
                             <div class="title-wrap">
@@ -182,12 +183,121 @@
                             </div>
                         </div>
                     </div>
-                </form>
             </div>
         </div>
     </div>
 </section>
 
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+<script type="text/javascript">
+
+
+$(document).ready(function () {
+
+
+
+
+
+
+
+    $(".monthpicker").datepicker({
+         autoclose: true,
+         minViewMode: 1,
+         format: 'mm'
+
+
+    });
+
+    $(".yearpicker").datepicker({
+         autoclose: true,
+         minViewMode: 2,
+         format: 'yyyy'
+
+
+    });
+
+
+  $("body").on("click",".btn-add",function(){
+
+
+
+            var value2  = "";
+            var value1 = '<form class="row content-line" method="post">';
+             value2 =  $(this).parents(".content").html();
+
+            if(value2 == undefined)
+            {
+                value2 =  $(this).parents(".content-line").html();
+                 var value3 = '</form>'
+                 var value = value1 + value2 + value3;
+                 $(this).parents(".content-line").after(value);
+            }
+            else
+            {
+                var value3 = '</form>'
+                var value = value1 + value2 + value3;
+                $(this).parents(".content").after(value);
+            }
+
+         var cancelbtn = '<button class="btn btn-action btn-shadow-not btn-cancel">Cancel</button>';
+
+
+
+            x = $(".content-line").find("button").hasClass("btn-cancel");
+            if(! x)
+            {
+                $(".content-line").find(".btn-save").after(cancelbtn);
+            }
+
+
+
+
+
+
+
+
+
+
+
+         $(".monthpicker").datepicker({
+         autoclose: true,
+         minViewMode: 1,
+         format: 'mm'
+
+
+    });
+
+    $(".yearpicker").datepicker({
+         autoclose: true,
+         minViewMode: 2,
+         format: 'yyyy'
+
+
+    });
+
+    });
+
+    $("body").on("click",".btn-cancel",function(){
+          $(this).parents(".content-line").remove();
+      });
+
+
+
+
+});
+
+
+
+
+
+
+
+</script>
 
 
 <!-- CONTENT END -->
