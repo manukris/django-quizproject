@@ -78,8 +78,11 @@ WSGI_APPLICATION = 'quizonline.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',# pip install psycopg2
+        'NAME': 'djquizdb',
+        'USER': 'psuser',
+        'PASSWORD': 'root123',
+        'HOST': 'localhost',
     }
 }
 
@@ -120,6 +123,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+AUTH_USER_MODEL = 'quizapp.Quizuser' #
 STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
