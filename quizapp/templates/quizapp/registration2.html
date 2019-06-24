@@ -72,10 +72,9 @@
                                 {% csrf_token %}
 
                                 <button type="submit" class="btn btn-action btn-shadow-not btn-save">Save</button>
-
+                                <button style="display: none;" class="btn btn-action btn-shadow-not btn-cancel" >Cancel</button>
                             </div>
                         </div>
-
 
 
                     </form>
@@ -155,6 +154,7 @@
                         <div class="col-12">
                              {% csrf_token %}
                             <button class="btn btn-action btn-shadow-not btn-save" >Save</button>
+                            <button style="display: none;" class="btn btn-action btn-shadow-not btn-cancel" >Cancel</button>
 
                         </div>
                     </form>
@@ -199,12 +199,6 @@
 
 $(document).ready(function () {
 
-
-
-
-
-
-
     $(".monthpicker").datepicker({
          autoclose: true,
          minViewMode: 1,
@@ -226,14 +220,15 @@ $(document).ready(function () {
 
 
 
-            var value2  = "";
+
             var value1 = '<form class="row content-line" method="post">';
-             value2 =  $(this).parents(".content").html();
+            var value2 =  $(this).parents(".content").html();
+            var value3 = '</form>'
 
             if(value2 == undefined)
             {
                 value2 =  $(this).parents(".content-line").html();
-                 var value3 = '</form>'
+
                  var value = value1 + value2 + value3;
                  $(this).parents(".content-line").after(value);
             }
@@ -244,20 +239,10 @@ $(document).ready(function () {
                 $(this).parents(".content").after(value);
             }
 
-         var cancelbtn = '<button class="btn btn-action btn-shadow-not btn-cancel">Cancel</button>';
+       //  var cancelbtn = '<button class="btn btn-action btn-shadow-not btn-cancel">Cancel</button>';
 
-
-
-            x = $(".content-line").find("button").hasClass("btn-cancel");
-            if(! x)
-            {
-                $(".content-line").find(".btn-save").after(cancelbtn);
-            }
-
-
-
-
-
+            x = $(".content-line").find(".btn-cancel").show();
+            console.log(x);
 
 
 
