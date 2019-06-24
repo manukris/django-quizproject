@@ -1,0 +1,234 @@
+{% extends "basetemplate.html" %}
+
+{% block title %} Homepage {% endblock %}
+
+{% block content %}
+<!-- CONTENT -->
+
+{% load static %}
+<!-- CONTENT -->
+<!-- CONTENT -->
+<section class="section-item section-earch">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7">
+                <h2 class="section-title"><span>Search for editors</span> and a proof reader or a research assistant in
+                    your academic field.</h2>
+                <p class="section-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam cupiditate
+                    nobis voluptatum sint rem aspernatur quod optio, facilis </p>
+                <p class="section-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam cupiditate
+                    nobis voluptatum sint rem aspernatur quod optio, facilis
+                    consectetur adipisicing elit. <span>Quibusdam cupiditate</span> nobis voluptatum sint rem aspernatur
+                    quod optio, facilis consectetur adipisicing elit. Quibusdam cupiditate nobis voluptatum sint rem
+                    aspernatur quod optio, facilis.</p>
+            </div>
+
+            <div class="col-lg-5">
+                <form action="#" class="form-group ">
+                    <div class="form-group form-group-search">
+                        <input type="search" class="form-control form-search" id="search" placeholder="Search editors">
+                    </div>
+                    <div class="form-group form-group-mb">
+                        <label for="descipline" class="input-sub-title">DISCIPLINE</label>
+                        <input type="text" class="form-control" id="descipline" placeholder=" ">
+                    </div>
+                    <p class="input-sub-title ">RESEARCH METHODS</p>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" checked id="inlineCheckbox1" value="option1">
+                        <label class="form-check-label" for="inlineCheckbox1">Quantitative</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                        <label class="form-check-label" for="inlineCheckbox2">Qualitative</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+                        <label class="form-check-label" for="inlineCheckbox3">Others</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="degree" class="input-sub-title">DEGREE</label>
+                        <input type="text" class="form-control" id="degree" placeholder=" ">
+                    </div>
+                    <div class="form-group">
+                        <label for="interest" class="input-sub-title">RESEARCHED INTEREST</label>
+                        <input type="text" class="form-control" id="interest" placeholder=" ">
+                    </div>
+                    <button class="btn " type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-item sign-up">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="img-wrap img-content">
+                    <img src="{% static 'img/sign-in.png' %}" alt="sign-in">
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <h2 class="section-title"><span>Sign-up</span> and become an editor and a proof-reader in three simple
+                    steps.</h2>
+                <p class="section-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam cupidi <a
+                        href="#">education.com </a> sint rem aspernatur quod optio, facilis placeat, quidem quaerat amet
+                    impedit architecto <span>maiores sapiente</span>, tempore nostrum explicabo esse.</p>
+                <a href="#" class="btn">SIGN UP</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="section-item fill-in right-img">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7  push-lg-5 ">
+                <div class="img-wrap img-content">
+                    <img src="{% static 'img/fill-in.png' %}" alt="fill-in">
+                </div>
+            </div>
+            <div class="col-lg-5 pull-lg-7 ">
+                <h2 class="section-title"><span>Fill-in our generic application.</span></h2>
+                <p class="section-text"><span>Lorem ipsum</span> dolor sit amet, consectetur adipisicing elit. Quibusdam
+                    cupiditate nobis voluptatum sint rem aspernatur quod optio, facilis placeat,quidem quaerat amet
+                    impedit architecto maiores sapiente, tempore nostrum <span>explicabo esse.</span></p>
+                <a href="#" class="btn">TRY NOW</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-item take-our">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="img-wrap img-content">
+                    <img src="{% static 'img/take-our.png' %}" alt="sign-in">
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <h2 class="section-title">Take our 30 minutes <span>English Test </span></h2>
+                <p class="section-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam cupidi
+                    education.com sint rem aspernatur quod optio, facilis placeat, quidem quaerat amet impedit
+                    architecto <span>maiores sapiente</span>, tempore nostrum explicabo esse.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section-item list-your right-img">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7 push-lg-5">
+                <div class="img-wrap img-content">
+                    <img src="{% static 'img/list-your.png' %}" alt="list-your">
+                </div>
+            </div>
+            <div class="col-lg-5 pull-lg-7">
+                <h2 class="section-title">List your qualifications and <span>experiences.</span></h2>
+                <p class="section-text"><span>Lorem ipsum </span>dolor sit amet, consectetur adipisicing elit. Quibusdam
+                    cupiditate nobis voluptatum sint rem aspernatur quod optio, facilis placeat, quidem quaerat amet
+                    impedit architecto maiores sapiente, tempore nostrum <span>explicabo esse.</span></p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section-item search-editors">
+    <div class="container">
+        <div class="row">
+            <h2 class="section-title section-title-lg title-center"><span>Search Editors</span> faster with Eseditor </h2>
+            <p class="section-text"><span>Eseditor</span> is part of the <a href="#">Education Studio Family</a>, and we
+                are committed to provide students and researchers in various disciplines, academic and qualified editors
+                and proofer-reader, and for researchers research-assistants to produce the most polished and written
+                research papers. </p>
+        </div>
+    </div>
+</section>
+<section class="section-item partners-section">
+    <div class="container">
+        <div class="row">
+            <div class="partners-wrap">
+                <div class="partners-item">
+                    <div class="img-wrap">
+                        <img src="{% static 'img/company-logo-1.png' %}" alt="alt">
+                    </div>
+                </div>
+                <div class="partners-item">
+                    <div class="img-wrap">
+                        <img src="{% static 'img/company-logo-2.png' %}" alt="alt">
+                    </div>
+                </div>
+                <div class="partners-item">
+                    <div class="img-wrap">
+                        <img src="{% static 'img/company-logo-3.png' %}" alt="alt">
+                    </div>
+                </div>
+                <div class="partners-item">
+                    <div class="img-wrap">
+                        <img src="{% static 'img/company-logo-4.png' %}" alt="alt">
+                    </div>
+                </div>
+                <div class="partners-item">
+                    <div class="img-wrap">
+                        <img src="{% static 'img/company-logo-5.png' %}" alt="alt">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section-item section-reviews">
+    <div class="container">
+        <div class="row">
+            <h2 class="section-title section-title-lg title-center"><span>Testimonials</span> from our clients </h2>
+            <div class="reviews-slider">
+                <div>
+                    <div class="reviews-slid-item">
+                        <div class="img-wrap">
+                            <img src="{% static 'img/user.png' %}" alt="alt">
+                        </div>
+                        <div class="reviews-content">
+                            <h5 class="reviews-title">Arni Richard</h5>
+                            <p class="reviews-sub-title">Lic. sudent</p>
+                            <p class="reviews-text">“Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam
+                                cupiditate nobis voluptatum sint rem aspernatur quod optio, facilis placeat, quidem
+                                quaerat amet impedit architecto maiores sapiente, tempore nostrum explicabo esse.”</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="reviews-slid-item">
+                        <div class="img-wrap">
+                            <img src="{% static 'img/user.png' %}" alt="alt">
+                        </div>
+                        <div class="reviews-content">
+                            <h5 class="reviews-title">Arni Richard</h5>
+                            <p class="reviews-sub-title">Lic. sudent</p>
+                            <p class="reviews-text">“Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam
+                                cupiditate nobis voluptatum sint rem aspernatur quod optio, facilis placeat, quidem
+                                quaerat amet impedit architecto maiores sapiente, tempore nostrum explicabo esse.”</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="reviews-slid-item">
+                        <div class="img-wrap">
+                            <img src="{% static 'img/user.png' %}" alt="alt">
+                        </div>
+                        <div class="reviews-content">
+                            <h5 class="reviews-title">Arni Richard</h5>
+                            <p class="reviews-sub-title">Lic. sudent</p>
+                            <p class="reviews-text">“Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam
+                                cupiditate nobis voluptatum sint rem aspernatur quod optio, facilis placeat, quidem
+                                quaerat amet impedit architecto maiores sapiente, tempore nostrum explicabo esse.”</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTENT END -->
+{% endblock %}
