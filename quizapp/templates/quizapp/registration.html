@@ -1,0 +1,240 @@
+{% extends "basetemplate.html" %}
+
+{% block title %} Registeration2 {% endblock %}
+
+{% block content %}
+
+{% load static %}
+<!-- CONTENT -->
+<section class="section-item registration-page ">
+    <div class="container">
+        <div class="row">
+            <div class="section-content border-no">
+                <div class="title-wrap">
+                    <h2 class="section-title title-line">Registration</h2>
+                </div>
+                <div class="reference">
+                    <img src="{% static 'img/australia-flag.svg' %}" alt="alt">
+                    <p class="text">You must have an <a href="#" target="_blank">Australian Bank</a> account
+                        to register <span><sup class="requirement">*</sup></span></p>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <h4 class="content-title mb-0">Profile</h4>
+                    </div>
+                </div>
+            </div>
+            <form action="#" class="profile-form">
+                <div class="slider-wraper section-content border-no">
+                    <div class="profile-slider">
+                        <label for="user-1">
+                            <div class="user-wrap checked default">
+                                <input type="radio" id="user-1" name="user-photo" value="1" checked>
+                                <img src="{% static 'img/userpic.png' %}" alt="alt">
+                                <span class="user-text">Default</span>
+                            </div>
+                        </label>
+                        <label for="user-2">
+                            <div class="user-wrap">
+                                <input type="radio" id="user-2" name="user-photo" value="2">
+                                <img src="{% static 'img/userpic2.png' %}" alt="alt">
+                                <span class="user-text">Selected</span>
+                            </div>
+                        </label>
+                        <label for="user-3">
+                            <div class="user-wrap">
+                                <input type="radio" id="user-3" name="user-photo" value="3">
+                                <img src="{% static 'img/userpic.png' %}" alt="alt">
+                                <span class="user-text">Selected</span>
+                            </div>
+                        </label>
+                        <label for="user-4">
+                            <div class="user-wrap">
+                                <input type="radio" id="user-4" name="user-photo" value="4">
+                                <img src="{% static 'img/userpic2.png' %}" alt="alt">
+                                <span class="user-text">Selected</span>
+                            </div>
+                        </label>
+                        <label for="user-5">
+                            <div class="user-wrap">
+                                <input type="radio" id="user-5" name="user-photo" value="5">
+                                <img src="{% static 'img/userpic2.png' %}" alt="alt">
+                                <span class="user-text">Selected</span>
+                            </div>
+                        </label>
+                        <label for="user-6">
+                            <div class="user-wrap">
+                                <input type="radio" id="user-6" name="user-photo" value="6">
+                                <img src="{% static 'img/userpic2.png' %}" alt="alt">
+                                <span class="user-text">Selected</span>
+                            </div>
+                        </label>
+                        <label for="user-7">
+                            <div class="user-wrap">
+                                <input type="radio" id="user-7" name="user-photo" value="7">
+                                <img src="{% static 'img/userpic.png' %}" alt="alt">
+                                <span class="user-text">Selected</span>
+                            </div>
+                        </label>
+                        <label for="user-8">
+                            <div class="user-wrap">
+                                <input type="radio" id="user-8" name="user-photo" value="8">
+                                <img src="{% static 'img/userpic.png' %}" alt="alt">
+                                <span class="user-text">Selected</span>
+                            </div>
+                        </label>
+                        <label for="user-9">
+                            <div class="user-wrap">
+                                <input type="radio" id="user-9" name="user-photo" value="8">
+                                <img src="{% static 'img/userpic2.png' %}" alt="alt">
+                                <span class="user-text">Selected</span>
+                            </div>
+                        </label>
+
+                    </div>
+                </div>
+                <div class=" section-content border-no">
+                    <div class="title-wrap">
+                        <h2 class="section-title title-line">General information</h2>
+                    </div>
+                    <div class="row">
+                        <div class="form-group form-group-mb col-lg-6">
+                            <label for="name" class="input-sub-title">FIRST NAME</label>
+                            <input type="text" class="form-control light-input" id="name" required
+                                   placeholder=" ">
+                        </div>
+                        <div class="form-group form-group-mb col-lg-6">
+                            <label for="last-name" class="input-sub-title">LAST NAME</label>
+                            <input type="text" class="form-control light-input" id="last-name" required
+                                   placeholder=" ">
+                        </div>
+                        <div class="form-group form-group-mb col-lg-6">
+                            <label for="email" class="input-sub-title">email</label>
+                            <input type="email" class="form-control light-input" id="email" required
+                                   placeholder=" ">
+                        </div>
+                        <div class="form-group form-group-mb col-lg-6">
+                            <label for="nationality" class="input-sub-title">nationality</label>
+                            <input type="text" class="form-control light-input" id="nationality" required
+                                   placeholder=" ">
+                        </div>
+                        <div class="form-group form-group-mb col-lg-6">
+                            <label for="phone" class="input-sub-title">phone</label>
+                            <input type="tel" class="form-control light-input" id="phone" required
+                                   placeholder=" ">
+
+                        </div>
+                        <div class="form-group form-group-mb col-lg-6">
+                            <label for="interest" class="input-sub-title">research interest</label>
+                            <input type="text" class="form-control light-input" id="interest" required
+                                   placeholder=" ">
+                        </div>
+                        <div class="form-group form-group-mb col-lg-6 ml-0">
+                            <label for="disciplines" class="input-sub-title">disciplines</label>
+                            <input type="text" class="form-control light-input" id="disciplines" required
+                                   placeholder=" ">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-check-wraper">
+                                <p class="input-sub-title ">RESEARCH METHODS</p>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" checked
+                                           id="inlineCheckbox1"
+                                           value="option1">
+                                    <label class="form-check-label" for="inlineCheckbox1">Quantitative</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                                           value="option2">
+                                    <label class="form-check-label" for="inlineCheckbox2">Qualitative</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
+                                           value="option3">
+                                    <label class="form-check-label" for="inlineCheckbox3">Others</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-check-wraper">
+                                <p class="input-sub-title ">REFENCE STYLE</p>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" checked id="harvard"
+                                           value="">
+                                    <label class="form-check-label" for="harvard">Harvard</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="oxford" value="">
+                                    <label class="form-check-label" for="oxford">Oxford</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="chicago" value="">
+                                    <label class="form-check-label" for="chicago">Chicago</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="apa" value="">
+                                    <label class="form-check-label" for="apa">APA</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="mla" value="">
+                                    <label class="form-check-label" for="mla">MLA</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="others" value="">
+                                    <label class="form-check-label" for="others">Others</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=" section-content border-no">
+                    <div class="title-wrap">
+                        <h2 class="section-title title-line">Adress information</h2>
+                    </div>
+                    <div class="row">
+                        <div class="form-group form-group-mb col-lg-6">
+                            <label for="street1" class="input-sub-title">STREET 1</label>
+                            <input type="text" class="form-control light-input" required id="street1"
+                                   placeholder=" ">
+                        </div>
+                        <div class="form-group form-group-mb col-lg-6">
+                            <label for="street2" class="input-sub-title">STREET 2</label>
+                            <input type="text" class="form-control light-input" id="street2"
+                                   placeholder=" ">
+                        </div>
+                        <div class="form-group form-group-mb col-lg-6">
+                            <label for="state" class="input-sub-title">STATE</label>
+                            <input type="text" class="form-control light-input" required id="state"
+                                   placeholder=" ">
+                        </div>
+                        <div class="form-group form-group-mb col-lg-6">
+                            <label for="city" class="input-sub-title">CITY</label>
+                            <input type="text" class="form-control light-input" required id="city"
+                                   placeholder=" ">
+                        </div>
+                        <div class="form-group form-group-mb col-lg-6">
+                            <label for="code" class="input-sub-title">post code</label>
+                            <input type="text" class="form-control light-input" required id="code"
+                                   placeholder=" ">
+                        </div>
+                        <div class="form-group form-group-mb col-lg-6">
+                            <label for="country" class="input-sub-title">COUNTRY</label>
+                            <select name="country" id="country" class="form-control light-input select">
+                                <option value=""></option>
+                                <option value="">country</option>
+                                <option value="">country</option>
+                            </select>
+                        </div>
+                    </div>
+                    <input type="submit" class="btn btn-shadow-not btn-sm" value=" Next ">
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<!-- CONTENT END -->
+{% endblock %}
