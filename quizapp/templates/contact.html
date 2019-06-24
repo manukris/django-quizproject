@@ -1,0 +1,98 @@
+{% extends "basetemplate.html" %}
+
+{% block title %} Contact - Us {% endblock %}
+
+{% block content %}
+
+{% load static %}
+
+<!-- CONTENT -->
+<section class="section-item contact-page ">
+    <div class="container">
+        <div class="row">
+            <div class="section-content">
+                <div class="title-wrap">
+                    <h2 class="section-title title-line">Contact Us</h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h4 class="content-title content-title-sm">Get In Touch</h4>
+                        <p class="content-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            Quibusdam cupiditate nobis voluptatum sint rem aspernatur quod optio, facilis
+                            placeat, quidem quaerat amet impedit architecto maiores sapiente, tempore nostrum
+                            explicabo esse. Lorem ipsum dolor sit amet</p>
+                        <form action="" class="light-form">
+                            <div class="form-group form-group-light">
+                                <label for="name" class="input-sub-title sub-title-sm">Name</label>
+                                <input type="text" class="form-control" id="name" placeholder=" ">
+                            </div>
+                            <div class="form-group form-group-light">
+                                <label for="email" class="input-sub-title sub-title-sm">EMAIL</label>
+                                <input type="email" class="form-control" id="email" placeholder=" ">
+                            </div>
+                            <div class="form-group form-group-light">
+                                <label for="textarea" class="input-sub-title sub-title-sm">MESSAGE</label>
+                                <textarea class="form-control textarea" id="textarea"></textarea>
+                            </div>
+                            <button class="btn btn-shadow-not" type="submit">View All Editors</button>
+                        </form>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="contact-info-wrap">
+                            <h4 class="content-title content-title-sm">Socials:</h4>
+                            <ul class="social-list">
+                                <li class="social-item">
+                                    <a href="" target="_blank" class="social-link">
+                                        <i class="ic ic-in-blue"></i>
+                                    </a>
+                                </li>
+                                <li class="social-item">
+                                    <a href="" target="_blank" class="social-link">
+                                        <i class="ic ic-tw-blue"></i>
+                                    </a>
+                                </li>
+                                <li class="social-item">
+                                    <a href="" target="_blank" class="social-link">
+                                        <i class="ic ic-fb-blue"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="contact-info-wrap">
+                            <h4 class="content-title content-title-sm">Email:</h4>
+                            <a href="mailto:info@educationstudio.com" class="contact-info"> <i
+                                    class="ic ic-mail-blue"></i>info@educationstudio.com</a>
+                        </div>
+                        <div class="contact-info-wrap">
+                            <h4 class="content-title content-title-sm">Adress:</h4>
+                            <p class="contact-info"><i class="ic ic-map-blue"></i>B-8 Complex Ahmed Al Jaber
+                                Street, 4th Floor, Office 6, Kuwait City, Kuwait</p>
+                        </div>
+                        <div class="contact-info-wrap">
+                            <h4 class="content-title content-title-sm">Opening Hours:</h4>
+                            <div class="contact-info">
+                                <i class="ic ic-alarm-icon"></i>
+                                <div class="schedule-wrap">
+                                    <span class="schedule-item">Sunday - Thursday: 9am - 8pm</span>
+                                    <span class="schedule-item">Friday: Closed</span>
+                                    <span class="schedule-item">Saturday: 10am - 2pm</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="map">
+    <div class="link-wrap">
+        <div class="img-wrap">
+            <img src="{% static 'img/arrow-forward.svg' %}" alt="alt">
+        </div>
+        <a href="#" target="_blank" class="map-link">Show in <span>Google Maps</span></a>
+    </div>
+    <div class="map-dot"></div>
+</div>
+<!-- CONTENT END -->
+{% endblock %}

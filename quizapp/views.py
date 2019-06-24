@@ -15,6 +15,11 @@ class Adduser(CreateView):
     form_class = QuizUserCreationForm
     success_url = "/"
 
+class AdduserDetails(CreateView):
+    template_name = 'quizapp/registration.html'
+    form_class = QuizUserCreationForm
+    success_url = "/"
+
 
 class AddQualification(CreateView):
     template_name = "quizapp/registration2.html"

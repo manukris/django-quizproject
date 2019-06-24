@@ -1,0 +1,63 @@
+{% extends "basetemplate.html" %}
+
+{% block title %} About As {% endblock %}
+
+{% block content %}
+
+{% load static %}
+<!-- CONTENT -->
+<section class="section-item about-page section-slider">
+    <div class="container">
+        <div class="row">
+            <div class="section-content">
+                <div class="title-wrap">
+                    <h2 class="section-title title-line">About Us</h2>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <h4 class="content-title">Who We Are ?</h4>
+                        <p class="content-text light-grey">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam cupiditate nobis voluptatum sint rem aspernatur quod optio, facilis placeat, quidem quaerat amet impedit architecto maiores sapiente, tempore nostrum explicabo esse. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam cupiditate nobis voluptatum sint rem aspernatur quod optio, facilis placeat, quidem quaerat amet impedit architecto maiores sapiente, tempore nostrum explicabo esse.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-30">
+            <div class="section-content why-chose">
+                <div class="title-wrap">
+                    <h2 class="section-title title-line">Why Chose Us?</h2>
+                </div>
+                <div class="row">
+                    <div class="why-chose-slider">
+                            <div class="col-4">
+                                <div class="wraper">
+                                    <div class="img-wrap">
+                                        <img src="{% static 'img/choose-us-1.svg' %}" alt="alt">
+                                    </div>
+                                    <p class="text">Expirienced editors and prof-readers in your academic field.</p>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="wraper">
+                                    <div class="img-wrap">
+                                        <img src="{% static 'img/choose-us-2.svg' %}" alt="alt">
+                                    </div>
+                                    <p class="text">Lowest prices <br> in the market.</p>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="wraper">
+                                    <div class="img-wrap">
+                                        <img src="{% static 'img/choose-us-3.svg' %}" alt="alt">
+                                    </div>
+                                    <p class="text">Security, Confidentiality and money back guaranteed.</p>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- CONTENT END -->
+
+{% endblock %}
