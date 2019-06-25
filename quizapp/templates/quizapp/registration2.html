@@ -6,13 +6,15 @@
 <!-- CONTENT -->
 <section class="section-item registration-page ">
     <div class="container">
+
+
         <div class="row">
             <div class="section-content">
                 <div class="title-wrap">
                     <h2 class="section-title title-line">Registration</h2>
                 </div>
 
-                     <form class="row content" method="post" ENCTYPE="multipart/form-data">
+                     <form class="row content qualify-add" method="post" ENCTYPE="multipart/form-data">
                         <div class="col-12">
                             <h2 class="section-title section-title-sm">Qualifications</h2>
                             <button type="button" class="btn btn-shadow-not btn-white btn-add"><span>+ </span> Add</button>
@@ -21,7 +23,7 @@
 
                         <div class="form-group form-group-mb col-lg-6">
                             <label for="university" class="input-sub-title">UNIVERSITY</label>
-                            <input type="text" class="form-control light-input" id="university" name="university"  required
+                            <input type="text" name="university" class="form-control light-input" id="university" name="university"  required
                                    placeholder=" ">
                         </div>
                         <div class="form-group form-group-mb col-lg-6">
@@ -31,7 +33,7 @@
                         </div>
                         <div class="form-group form-group-mb col-lg-6">
                             <label for="degree" class="input-sub-title">DEGREE</label>
-                            <select name="degree" id="degree" class="form-control light-input select">
+                            <select name="degree" id="degree"  class="form-control light-input select">
                                 <option></option>
                                 <option value="deg1">degree</option>
                                 <option value="deg2">degree</option>
@@ -69,7 +71,7 @@
                                     <span class="file-name"></span>
                                 </div>
 
-                                {% csrf_token %}
+
 
                                 <button type="submit" class="btn btn-action btn-shadow-not btn-save">Save</button>
                                 <button style="display: none;" class="btn btn-action btn-shadow-not btn-cancel" >Cancel</button>
@@ -81,7 +83,7 @@
 
                    <div class="row content-line" ></div>
 
-                    <form class="row content" method="post">
+                    <form class="row content exp-add" method="post">
                         <div class="col-12">
                             <div class="form-check-wraper">
                                 <h2 class="section-title section-title-sm">Experiences</h2>
@@ -91,69 +93,58 @@
                         </div>
                         <div class="form-group form-group-mb col-lg-6">
                             <label for="company" class="input-sub-title">COMPANY</label>
-                            <input type="text" class="form-control light-input" id="company">
+                            <input type="text" name="company" class="form-control light-input" id="company">
                         </div>
                         <div class="form-group form-group-mb col-lg-6">
                             <label for="title" class="input-sub-title">TITLE</label>
-                            <input type="text" class="form-control light-input" id="title">
+                            <input type="text" name="title" class="form-control light-input" id="title">
                         </div>
                         <div class="form-group form-group-mb col-lg-6 ml-0">
                             <label for="location" class="input-sub-title">LOCATION</label>
-                            <input type="text" class="form-control light-input" id="location">
+                            <input type="text"  name="location" class="form-control light-input" id="location">
                         </div>
                         <div class="col-12">
                             <div class="form-group form-group-mb form-full ">
                                 <label for="description" class="input-sub-title">DESCRIPTION</label>
-                                <textarea id="description" class="textarea"></textarea>
+                                <textarea id="description" name="description" class="textarea"></textarea>
                             </div>
                         </div>
                         <div class="form-group form-group-mb col-lg-6">
-                            <label for="starting-month" class="input-sub-title">STARTING MONTH</label>
-                            <select name="starting-month" id="starting-month"
-                                    class="form-control light-input select">
-                                <option value=""></option>
-                                <option value="">STARTING MONTH</option>
-                                <option value="">STARTING MONTH</option>
-                            </select>
+                            <label for="starting-month" class="input-sub-title monthpicker">STARTING MONTH</label>
+                            <input type="text" name="startmonth" id="starting-month"
+                                    class="form-control light-input monthpicker">
+
+
                         </div>
                         <div class="form-group form-group-mb col-lg-6">
                             <label for="startign-year2" class="input-sub-title">STARTIGN YEAR</label>
-                            <select name="starting-month" id="startign-year2"
-                                    class="form-control light-input select">
-                                <option value=""></option>
-                                <option value="">STARTIGN YEAR</option>
-                                <option value="">STARTIGN YEAR</option>
-                            </select>
+                            <input type="text" name="startyear" id="startign-year2"
+                                    class="form-control light-input select yearpicker">
+
                         </div>
                         <div class="form-group form-group-mb col-lg-6">
                             <label for="to-month2" class="input-sub-title">TO MONTH</label>
-                            <select name="starting-month" id="to-month2"
-                                    class="form-control light-input select">
-                                <option value=""></option>
-                                <option value="">STARTING MONTH</option>
-                                <option value="">STARTING MONTH</option>
-                            </select>
+                            <input type="text" name="endmonth" id="to-month2"
+                                    class="form-control light-input  monthpicker">
+
                         </div>
                         <div class="form-group form-group-mb col-lg-6">
                             <label for="to-year2" class="input-sub-title">TO YEAR</label>
-                            <select name="starting-month" id="to-year2"
-                                    class="form-control light-input select">
-                                <option value=""></option>
-                                <option value="">to year</option>
-                                <option value="">to year</option>
-                            </select>
+                            <input type="text" name="endyear" id="to-year2"
+                                    class="form-control light-input  yearpicker">
+
                         </div>
                         <div class="col-12">
                             <div class="form-check-wraper">
                                 <div class="form-check form-check-inline current">
-                                    <input class="form-check-input" type="checkbox" id="current">
+                                    <input class="form-check-input" name="iscurrent" type="checkbox" id="current">
                                     <label class="form-check-label" for="current">Is current</label>
                                 </div>
                             </div>
                         </div>
                         <div class="col-12">
-                             {% csrf_token %}
-                            <button class="btn btn-action btn-shadow-not btn-save" >Save</button>
+
+                            <button type="submit" class="btn btn-action btn-shadow-not btn-save" >Save</button>
                             <button style="display: none;" class="btn btn-action btn-shadow-not btn-cancel" >Cancel</button>
 
                         </div>
@@ -188,9 +179,10 @@
     </div>
 </section>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 
@@ -214,6 +206,75 @@ $(document).ready(function () {
 
 
     });
+
+
+
+$(".qualify-add").submit(function(e){
+
+    e.preventDefault();
+    var formData = new FormData($(this).get(0));
+
+    var form = $(this);
+    $.ajax({
+       url : '{% url 'qualifyadd' %}',
+       type : 'POST',
+       data : formData,
+       processData: false,  // tell jQuery not to process the data
+       contentType: false,  // tell jQuery not to set contentType
+       success : function(data) {
+           console.log(data);
+
+
+
+          var alert = '<div class="alert alert-success alert-dismissible">'+
+                        '<button type="button" class="close" data-dismiss="alert">&times;</button>'+
+                        '<strong>Success!</strong> Qualification Addded.'+
+                        '</div>';
+
+        form.prepend(alert);
+
+          form.trigger('reset');
+
+
+
+
+
+       }
+    });
+
+
+   });
+
+
+
+
+$(".exp-add").submit(function(e){
+
+    e.preventDefault();
+    var formData = $(this).serialize();
+    var form = $(this);
+    $.ajax({
+       url : '{% url 'expadd' %}',
+       type : 'POST',
+       data : formData,
+       success : function(data) {
+           console.log(data);
+            var alert = '<div class="alert alert-success alert-dismissible">'+
+                        '<button type="button" class="close" data-dismiss="alert">&times;</button>'+
+                        '<strong>Success!</strong> Experience  Addded.'+
+                        '</div>';
+
+        form.prepend(alert);
+
+          form.trigger('reset');
+       }
+    });
+
+
+   });
+
+
+
 
 
   $("body").on("click",".btn-add",function(){

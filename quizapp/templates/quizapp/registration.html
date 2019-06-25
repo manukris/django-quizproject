@@ -24,7 +24,12 @@
                     </div>
                 </div>
             </div>
-            <form action="#" class="profile-form">
+
+
+
+
+            <form  class="profile-form" method="post">
+
                 <div class="slider-wraper section-content border-no">
                     <div class="profile-slider">
                         <label for="user-1">
@@ -80,6 +85,7 @@
                             <div class="user-wrap">
                                 <input type="radio" id="user-8" name="user-photo" value="8">
                                 <img src="{% static 'img/userpic.png' %}" alt="alt">
+                               <input type="hidden" value="img/userpic.png"  name="profile" >
                                 <span class="user-text">Selected</span>
                             </div>
                         </label>
@@ -98,40 +104,51 @@
                         <h2 class="section-title title-line">General information</h2>
                     </div>
                     <div class="row">
+
                         <div class="form-group form-group-mb col-lg-6">
                             <label for="name" class="input-sub-title">FIRST NAME</label>
-                            <input type="text" class="form-control light-input" id="name" required
+                            <input type="text" class="form-control light-input" name="username" id="name"  required
                                    placeholder=" ">
                         </div>
                         <div class="form-group form-group-mb col-lg-6">
                             <label for="last-name" class="input-sub-title">LAST NAME</label>
-                            <input type="text" class="form-control light-input" id="last-name" required
+                            <input type="text" class="form-control light-input" id="last-name" name="first_name" required
+                                   placeholder=" ">
+                        </div>
+                        <div class="form-group form-group-mb col-lg-6">
+                            <label for="password1" class="input-sub-title">Password</label>
+                            <input type="password" class="form-control light-input" id="password1" name="password1" required
+                                   placeholder=" ">
+                        </div>
+                        <div class="form-group form-group-mb col-lg-6">
+                            <label for="password2" class="input-sub-title">Confirm Password</label>
+                            <input type="password" class="form-control light-input" id="password2" name="password2" required
                                    placeholder=" ">
                         </div>
                         <div class="form-group form-group-mb col-lg-6">
                             <label for="email" class="input-sub-title">email</label>
-                            <input type="email" class="form-control light-input" id="email" required
+                            <input type="email" class="form-control light-input" id="email" name="email" required
                                    placeholder=" ">
                         </div>
                         <div class="form-group form-group-mb col-lg-6">
                             <label for="nationality" class="input-sub-title">nationality</label>
-                            <input type="text" class="form-control light-input" id="nationality" required
+                            <input type="text" class="form-control light-input" name="nationality" id="nationality" required
                                    placeholder=" ">
                         </div>
                         <div class="form-group form-group-mb col-lg-6">
                             <label for="phone" class="input-sub-title">phone</label>
-                            <input type="tel" class="form-control light-input" id="phone" required
+                            <input type="tel" class="form-control light-input" name="phone" id="phone" required
                                    placeholder=" ">
 
                         </div>
                         <div class="form-group form-group-mb col-lg-6">
                             <label for="interest" class="input-sub-title">research interest</label>
-                            <input type="text" class="form-control light-input" id="interest" required
+                            <input type="text" class="form-control light-input" id="interest" name="researchInterest" required
                                    placeholder=" ">
                         </div>
                         <div class="form-group form-group-mb col-lg-6 ml-0">
                             <label for="disciplines" class="input-sub-title">disciplines</label>
-                            <input type="text" class="form-control light-input" id="disciplines" required
+                            <input type="text" class="form-control light-input" name="disiplines" id="disciplines" required
                                    placeholder=" ">
                         </div>
                     </div>
@@ -140,7 +157,7 @@
                             <div class="form-check-wraper">
                                 <p class="input-sub-title ">RESEARCH METHODS</p>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" checked
+                                    <input class="form-check-input" name="researchMethod" type="checkbox" checked
                                            id="inlineCheckbox1"
                                            value="option1">
                                     <label class="form-check-label" for="inlineCheckbox1">Quantitative</label>
@@ -163,8 +180,8 @@
                             <div class="form-check-wraper">
                                 <p class="input-sub-title ">REFENCE STYLE</p>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" checked id="harvard"
-                                           value="">
+                                    <input class="form-check-input" name="referenceStyle" type="checkbox" checked id="harvard"
+                                           value="refstyle">
                                     <label class="form-check-label" for="harvard">Harvard</label>
                                 </div>
                                 <div class="form-check form-check-inline">
@@ -198,41 +215,43 @@
                     <div class="row">
                         <div class="form-group form-group-mb col-lg-6">
                             <label for="street1" class="input-sub-title">STREET 1</label>
-                            <input type="text" class="form-control light-input" required id="street1"
+                            <input type="text" class="form-control light-input" name="street1" required id="street1"
                                    placeholder=" ">
                         </div>
                         <div class="form-group form-group-mb col-lg-6">
                             <label for="street2" class="input-sub-title">STREET 2</label>
-                            <input type="text" class="form-control light-input" id="street2"
+                            <input type="text" class="form-control light-input" name="street2" id="street2"
                                    placeholder=" ">
                         </div>
                         <div class="form-group form-group-mb col-lg-6">
                             <label for="state" class="input-sub-title">STATE</label>
-                            <input type="text" class="form-control light-input" required id="state"
+                            <input type="text" class="form-control light-input"  name="state" required id="state"
                                    placeholder=" ">
                         </div>
                         <div class="form-group form-group-mb col-lg-6">
                             <label for="city" class="input-sub-title">CITY</label>
-                            <input type="text" class="form-control light-input" required id="city"
+                            <input type="text" class="form-control light-input" name="city" required id="city"
                                    placeholder=" ">
                         </div>
                         <div class="form-group form-group-mb col-lg-6">
                             <label for="code" class="input-sub-title">post code</label>
-                            <input type="text" class="form-control light-input" required id="code"
+                            <input type="text" class="form-control light-input" name="postcode" required id="code"
                                    placeholder=" ">
                         </div>
                         <div class="form-group form-group-mb col-lg-6">
                             <label for="country" class="input-sub-title">COUNTRY</label>
-                            <select name="country" id="country" class="form-control light-input select">
+                            <select name="country" id="country"  class="form-control light-input select">
                                 <option value=""></option>
-                                <option value="">country</option>
-                                <option value="">country</option>
+                                <option value="sasa">country</option>
+                                <option value="sdfdsds">country</option>
                             </select>
                         </div>
                     </div>
+                    {% csrf_token %}
                     <input type="submit" class="btn btn-shadow-not btn-sm" value=" Next ">
                 </div>
             </form>
+
         </div>
     </div>
 </section>
