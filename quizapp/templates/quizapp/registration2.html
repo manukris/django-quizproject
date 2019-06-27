@@ -166,11 +166,11 @@
                         </div>
                         <div class="col-12">
                             <div class="input-wrap">
-                                <input type="submit" class="btn btn-shadow-not btn-full"
-                                       value=" Complete ">
+                                <input type="button" class="btn btn-shadow-not btn-full complete"
+                                       value="Complete " disabled>
                                 <span class="devider">OR</span>
-                                <input type="submit" class="btn btn-shadow-not btn-full btn-white"
-                                       value=" Save and Continue Leter ">
+                                <input type="button" class="btn btn-shadow-not btn-full btn-white finalsub"
+                                       value=" Save and Continue Leter " disabled>
                             </div>
                         </div>
                     </div>
@@ -178,6 +178,73 @@
         </div>
     </div>
 </section>
+
+
+
+<!-- Modal paperModal-->
+<div class="modal fade "id="paperModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog " role="document"  style="max-width: 30%;" >
+        <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="modal-header">
+                 Qualification added
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal paperModal-->
+<div class="modal fade "id="paperModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog " role="document"  style="max-width: 30%;" >
+        <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="modal-header">
+                 Experience added
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade "id="profile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog " role="document"  style="max-width: 30%;" >
+        <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="modal-header">
+                 Profile saved
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade "id="continue" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog " role="document"  style="max-width: 30%;" >
+        <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="modal-header">
+                 Profile Added
+            </div>
+
+        </div>
+    </div>
+</div>
 
 
 
@@ -189,7 +256,67 @@
 <script type="text/javascript">
 
 
+
+
 $(document).ready(function () {
+
+
+
+    $(".finalsub").click(function(){
+
+
+            $( ".qualify-add" ).each(function() {
+
+                $(this).trigger('submit');
+            });
+
+             $( ".exp-add" ).each(function() {
+
+                $(this).trigger('submit');
+            });
+
+        // window.location.href = "/";
+
+
+    });
+
+     $(".complete").click(function(){
+
+        $( ".qualify-add" ).each(function() {
+
+                $(this).trigger('submit');
+            });
+
+             $( ".exp-add" ).each(function() {
+
+                $(this).trigger('submit');
+            });
+         //window.location.href = "/";
+
+    });
+
+
+
+
+
+
+    $("#agree").click(function(){
+
+        if ($(this).is(':checked'))
+        {
+
+            $(".finalsub").attr("disabled",false);
+            $(".complete").attr("disabled",false);
+        }
+        else
+        {
+            $(".finalsub").attr("disabled",true);
+            $(".complete").attr("disabled",true);
+
+        }
+
+    });
+
 
     $(".monthpicker").datepicker({
          autoclose: true,
@@ -208,8 +335,9 @@ $(document).ready(function () {
     });
 
 
+$("body").on("submit",".qualify-add",function(e){
 
-$(".qualify-add").submit(function(e){
+
 
     e.preventDefault();
     var formData = new FormData($(this).get(0));
@@ -224,19 +352,20 @@ $(".qualify-add").submit(function(e){
        success : function(data) {
            console.log(data);
 
+        $("#paperModal").modal();
+        $(".file-name").html("");
+        $(".file-name").removeClass("selected");
 
 
-          var alert = '<div class="alert alert-success alert-dismissible">'+
-                        '<button type="button" class="close" data-dismiss="alert">&times;</button>'+
-                        '<strong>Success!</strong> Qualification Addded.'+
-                        '</div>';
+           if (form.hasClass('content-line'))
+           {
+                form.hide()
+           }
+           else
+           {
 
-        form.prepend(alert);
-
-          form.trigger('reset');
-
-
-
+                form.trigger('reset');
+          }
 
 
        }
@@ -248,7 +377,7 @@ $(".qualify-add").submit(function(e){
 
 
 
-$(".exp-add").submit(function(e){
+$("body").on("submit",".exp-add",function(e){
 
     e.preventDefault();
     var formData = $(this).serialize();
@@ -258,15 +387,17 @@ $(".exp-add").submit(function(e){
        type : 'POST',
        data : formData,
        success : function(data) {
-           console.log(data);
-            var alert = '<div class="alert alert-success alert-dismissible">'+
-                        '<button type="button" class="close" data-dismiss="alert">&times;</button>'+
-                        '<strong>Success!</strong> Experience  Addded.'+
-                        '</div>';
 
-        form.prepend(alert);
+            $("#paperModal2").modal();
+           if (form.hasClass('content-line'))
+           {
+                form.hide()
+           }
+           else
+           {
 
-          form.trigger('reset');
+                form.trigger('reset');
+          }
        }
     });
 
@@ -280,9 +411,22 @@ $(".exp-add").submit(function(e){
   $("body").on("click",".btn-add",function(){
 
 
+            var formclass = "qualify-add";
+
+            if($(this).closest('form').hasClass('qualify-add'))
+            {
+                formclass = 'qualify-add';
+
+            }
+            else
+            {
+                formclass = 'exp-add';
+
+            }
 
 
-            var value1 = '<form class="row content-line" method="post">';
+
+            var value1 = '<form class="row content-line '+formclass+'" method="post">';
             var value2 =  $(this).parents(".content").html();
             var value3 = '</form>'
 
@@ -306,10 +450,6 @@ $(".exp-add").submit(function(e){
             console.log(x);
 
 
-
-
-
-
          $(".monthpicker").datepicker({
          autoclose: true,
          minViewMode: 1,
@@ -331,6 +471,10 @@ $(".exp-add").submit(function(e){
     $("body").on("click",".btn-cancel",function(){
           $(this).parents(".content-line").remove();
       });
+
+
+
+
 
 
 
