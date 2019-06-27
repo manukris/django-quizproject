@@ -49,8 +49,9 @@ class QuizView(ListView):
     model         = Quiz
     paginate_by   = 1
 
-    def get_context_data(self,  **kwargs):
-        contextData = super().get_context_data( **kwargs)
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        contextData = super().get_context_data( object_list=None, **kwargs)
         contextData['form'] = QuizForm()
         return contextData
 
