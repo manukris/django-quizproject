@@ -62,7 +62,6 @@ def quizFormSubmit(request):
         if form.is_valid():
             quizanswer = form.save(commit=False)
 
-
             if quizanswer.question.answer == quizanswer.inputopt:
                 status = 1
             else:
@@ -71,6 +70,7 @@ def quizFormSubmit(request):
             quizanswer.status = status
             quizanswer.save()
             return HttpResponse("submit")
+
 
         else:
             return HttpResponse(form.errors)
