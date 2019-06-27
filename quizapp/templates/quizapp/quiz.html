@@ -20,39 +20,53 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <div class="quiz-title">(<span >1</span> / <span >3</span>) Questions</div>
-                        <div class="quiz-item"><span id="quiz-number">7</span>. DIFFICULT, answer (c)</div>
-                        <form  name="quizform" action="#" >
+
+
+                        {% for question in object_list %}
+                        <div class="quiz-title">(<span >{{page_obj.number}}</span> / <span >{{ page_obj.paginator.num_pages }}</span>) Questions</div>
+                        <div class="quiz-item"><span id="quiz-number"> {{ page_obj.number }} </span> <span>{{question.question}}</span></div>
+
+
+
+                        <form class="quizform" name="quizform" action="#" >
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="quiz" id="1" value="1">
-                                    A Lorem ipsum dolor sit amet.
+                                    <input type="radio" name="inputopt"  required id="1" value="1">
+
+                                   {{question.option1}}
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="quiz" id="2" value="2">
-                                    B
+                                    <input type="radio" name="inputopt" required id="2" value="2">
+                                    {{question.option2}}
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="quiz" id="3" value="3">
-                                    C
+                                    <input type="radio" name="inputopt" required id="3" value="3">
+                                    {{question.option3}}
                                 </label>
                             </div>
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="quiz" id="4" value="4">
-                                    D
+                                    <input type="radio" name="inputopt" required id="4" value="4">
+                                    {{question.option4}}
                                 </label>
                             </div>
+                            {% csrf_token %}
+
+                            <input type="hidden" name="question" value="{{question.pk}}">
                             <input type="submit" class="btn btn-shadow-not" value=" Next ">
                         </form>
+
+                        {% endfor %}
                     </div>
                 </div>
             </div>
         </div>
+
+
         <div class="row mt-30">
             <div class="section-content why-chose">
                 <div class="title-wrap">
@@ -92,7 +106,103 @@
         </div>
     </div>
 </section>
+<!-- Modal paperModal-->
+<div class="modal fade "id="expiry" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog " role="document"  style="max-width: 30%;" >
+        <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="modal-header">
+                 Time Expired
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade "id="finish" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog " role="document"  style="max-width: 30%;" >
+        <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="modal-header">
+                 Quiz Finished
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 <script>
+
+
+
+$(document).ready(function () {
+
+
+    $(".quizform").submit(function(e){
+
+            e.preventDefault()
+            var formData = $(this).serialize();
+             $.post(
+             "{% url 'quizsubmit' %}",
+             formData,
+             function(data, status){
+             //  alert("submit")
+
+                 {% if page_obj.has_next %}
+
+
+                    window.location.href = "?page={{ page_obj.next_page_number }}";
+
+
+                {% else %}
+                    $("#finish").modal()
+
+                   //  window.location.href = "/";
+                  {% endif %}
+          });
+
+    });
+
+
+
+
+
+
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   var distance = 30;
 // Update the count down every 1 second
 var x = setInterval(function() {
@@ -113,9 +223,29 @@ var x = setInterval(function() {
   if (distance < 0) {
     clearInterval(x);
     document.getElementById("time-left").innerHTML = "EXPIRED";
+    $("#expiry").modal()
+
+       {% if page_obj.has_next %}
+                   window.location.href = "?page={{ page_obj.next_page_number }}";
+        {% else %}
+                    $("#finish").modal()
+                   //  window.location.href = "/";
+        {% endif %}
+
+
+
    // alert("Time Up');
   }
 }, 1000);
+
+
+
+
+
+
+
+
+
 </script>
 <!-- CONTENT END -->
 {% endblock %}

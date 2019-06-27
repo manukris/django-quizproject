@@ -20,6 +20,8 @@ class QuizUser(AbstractUser):
     country = models.CharField(max_length=100, default="null")
 
 
+class QualifyDegree(models.Model):
+    degreename = models.CharField(max_length=100)
 
 
 class Qualification(models.Model):
@@ -44,6 +46,24 @@ class Experience(models.Model):
     startyear = models.CharField(max_length=50)
     endyear = models.CharField(max_length=50)
     iscurrent = models.BooleanField(default=False)
+
+
+
+class Quiz(models.Model):
+    question = models.TextField()
+    option1  = models.CharField(max_length=200)
+    option2  = models.CharField(max_length=200)
+    option3  = models.CharField(max_length=200)
+    option4  = models.CharField(max_length=200)
+    answer   = models.IntegerField(max_length=200)
+
+class QuizAnswer(models.Model):
+    userid   = models.ForeignKey(QuizUser,on_delete=models.CASCADE)
+    question = models.ForeignKey(Quiz, on_delete=models.CASCADE)
+    inputopt   = models.IntegerField(max_length=200)
+    status   = models.IntegerField(default=0)
+
+
 
 
 

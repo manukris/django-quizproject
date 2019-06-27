@@ -2,10 +2,11 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView
+from django.views.generic.list import ListView
 from django.urls import reverse_lazy
 
-from .models import QuizUser,Qualification
-from .forms import QuizUserCreationForm,QualificationForm,ExperienceForm
+from .models import QuizUser,Qualification,Quiz,QuizAnswer
+from .forms import QuizUserCreationForm,QualificationForm,ExperienceForm,QuizForm
 
 from django.views.decorators.csrf import csrf_exempt
 
@@ -43,8 +44,36 @@ class ViewTemplate(TemplateView):
     template_name = "quizapp/registration2.html"
 
 
-class QuizView(TemplateView):
+class QuizView(ListView):
     template_name = "quizapp/quiz.html"
+    model         = Quiz
+    paginate_by   = 1
+
+    def get_context_data(self,  **kwargs):
+        contextData = super().get_context_data( **kwargs)
+        contextData['form'] = QuizForm()
+        return contextData
+
+
+def quizFormSubmit(request):
+    if request.method == 'POST':
+        form = QuizForm(request.POST)
+        if form.is_valid():
+            quizanswer = form.save(commit=False)
+
+
+            if quizanswer.question.answer == quizanswer.inputopt:
+                status = 1
+            else:
+                status = 2
+            quizanswer.userid = QuizUser.objects.get(pk=2)
+            quizanswer.status = status
+            quizanswer.save()
+            return HttpResponse("submit")
+
+        else:
+            return HttpResponse(form.errors)
+
 
 
 def qualificationExpView(request):

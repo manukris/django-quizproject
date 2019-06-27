@@ -9,4 +9,6 @@ urlpatterns = [
     path('qualifyadd/', views.addQualification, name="qualifyadd"),
     path('expadd/', views.addExperience, name="expadd"),
     path('quiz/', views.QuizView.as_view(), name="quiz"),
+    path('quizformsubmit/', views.quizFormSubmit, name="quizsubmit"),
+
 ]
