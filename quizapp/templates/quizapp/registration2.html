@@ -24,7 +24,7 @@
                         <div class="form-group form-group-mb col-lg-6">
                             <label for="university" class="input-sub-title">UNIVERSITY</label>
                             <input type="text" name="university" class="form-control light-input" id="university" name="university"  required
-                                   placeholder=" ">
+                                   placeholder="">
                         </div>
                         <div class="form-group form-group-mb col-lg-6">
                             <label for="level" class="input-sub-title">degree level</label>
@@ -247,6 +247,53 @@
 </div>
 
 
+<div class="modal fade" id="qualifyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+
+            <div class="modal-header">
+                <div class="title-wrap">
+                    <h2 class="section-title title-line">Qualification</h2>
+                </div>
+            </div>
+
+
+
+
+                <div class="row">
+
+
+                        <table class="qulifytable table" >
+
+
+                        </table>
+
+
+                </div>
+        <div class="modal-footer">
+
+                        <button class="btn btn-action btn-shadow-not left" >Submit</button>
+                        <button class="btn btn-action btn-shadow-not btn-white btn-cancel left" data-dismiss="modal" aria-label="Close">Close</button>
+        </div>
+                    </div>
+                </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -322,9 +369,12 @@ $(document).ready(function () {
          autoclose: true,
          minViewMode: 1,
          format: 'mm'
-
-
     });
+
+
+
+
+
 
     $(".yearpicker").datepicker({
          autoclose: true,
@@ -340,7 +390,28 @@ $("body").on("submit",".qualify-add",function(e){
 
 
     e.preventDefault();
+
     var formData = new FormData($(this).get(0));
+
+
+    var table = "<tr> <th> University </th> <td> "+formData.get('university')+"<td></tr>";
+        table += "<tr> <th> Degree level </th> <td> "+formData.get('degreelevel')+"<td></tr>"
+        table += "<tr> <th> Degree </th> <td> "+formData.get('degree')+"<td></tr>"
+        table += "<tr> <th> Startmonth </th> <td> "+formData.get('startmonth')+"<td></tr>"
+        table += "<tr> <th> Endmonth </th> <td> "+formData.get('endmonth')+"<td></tr>"
+        table += "<tr> <th> Startyear </th> <td> "+formData.get('startyear')+"<td></tr>"
+        table += "<tr> <th> Endyear </th> <td> "+formData.get('endyear')+"<td></tr>"
+        table += "<tr> <th> File </th> <td> "+formData.get('document').name+"<td></tr>"
+
+
+    $(".qulifytable").append(table);
+
+
+    $("#qualifyModal").modal();
+
+
+    return false;
+
 
     var form = $(this);
     $.ajax({
@@ -366,7 +437,6 @@ $("body").on("submit",".qualify-add",function(e){
 
                 form.trigger('reset');
           }
-
 
        }
     });
@@ -471,11 +541,6 @@ $("body").on("submit",".exp-add",function(e){
     $("body").on("click",".btn-cancel",function(){
           $(this).parents(".content-line").remove();
       });
-
-
-
-
-
 
 
 

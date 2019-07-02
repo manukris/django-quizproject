@@ -1,0 +1,412 @@
+{% extends "basetemplate.html" %}
+
+{% block title %} Registration2 {% endblock %}
+
+{% block content %}
+
+{% load static %}
+<div class="search-wrap user-page">
+    <div class="container">
+        <div class="row mb-20">
+            <div class="col-lg-5 col-xl-4">
+                <a href="#" class="btn btn-shadow-not btn-white btn-full btn-logo"> <div class="img-wrap big-img"><img src="img/stripe-big-logo.svg" alt="alt"></div> <div class="img-wrap small-img"><img src="img/stripe-small-logo.svg" alt="alt"></div> Connect your Stripe account</a>
+            </div>
+            <div class="col-lg-7 col-xl-8">
+                <div class="btn-wrap">
+                    <a href="#" class="btn btn-shadow-not btn-white btn-user " data-toggle="modal"
+                       data-target="#requestModal">Request a quote</a>
+                    <a href="#" class="btn btn-shadow-not btn-user" data-toggle="modal"
+                       data-target="#paperModal">Submit a paper</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class=" col-lg-5 col-xl-4 ">
+                <div class="user-detail card-item">
+                    <div class="user-main-info">
+                        <div class="img-wrap">
+
+                            <img src="/media/{{object.profilepic}}" alt="alt">
+                        </div>
+                        <h3 class="user-name">{{ object.username }}</h3>
+                        <div class="rating-wrap rating-not-hover">
+                            <fieldset class="rating ">
+                                <form action="">
+                                    <input type="radio" id="star5" name="rating" value="5"/><label
+                                        class="full" for="star5"></label>
+                                    <input type="radio" id="star4half" name="rating"
+                                           value="4 and a half"/><label class="half"
+                                                                        for="star4half"></label>
+                                    <input type="radio" id="star4" name="rating" value="4"/><label
+                                        class="full" for="star4"></label>
+                                    <input type="radio" id="star3half" name="rating"
+                                           value="3 and a half"/><label class="half"
+                                                                        for="star3half"></label>
+                                    <input type="radio" id="star3" name="rating" value="3"/><label
+                                        class="full" for="star3"></label>
+                                    <input type="radio" id="star2half" name="rating"
+                                           value="2 and a half"/><label class="half"
+                                                                        for="star2half"></label>
+                                    <input type="radio" id="star2" checked name="rating" value="2"/><label
+                                        class="full" for="star2"></label>
+                                    <input type="radio" id="star1half" name="rating"
+                                           value="1 and a half"/><label class="half"
+                                                                        for="star1half"></label>
+                                    <input type="radio" id="star1" name="rating" value="1"/><label
+                                        class="full" for="star1"></label>
+                                    <input type="radio" id="starhalf" name="rating" value="half"/><label
+                                        class="half" for="starhalf"></label>
+                                </form>
+                            </fieldset>
+                        </div>
+                        <div class="rating-num"><span>5.0</span>/<span>5.0</span></div>
+                    </div>
+                </div>
+                <a href="#" class="show-more-info hide"><span class="text"  >Show more   </span><i class="ic ic-arrow"></i></a>
+                <div class="user-detail pt-0 card-item user-hide-sm hide">
+                    <div class="user-datail-wrap">
+                        <div class="user-datail-item ">
+                            <div class="card-top">
+                                <h4 class="card-title">Nationality:</h4>
+                                <div class="content-right">
+                                    <span class="nationality-val">{{ object.nationality }}</span>
+                                    <a href="#" class="card-edit"><i class="ic ic-card-edit"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-datail-item ">
+                            <div class="card-top">
+                                <h4 class="card-title">Research Metgods:</h4>
+                                <a href="#" class="card-edit"><i class="ic ic-card-edit"></i></a>
+                            </div>
+                            <div class="hashtag-wrap">
+                                <a href="#" class="hashtag-item hashtag-red">Method name</a>
+                                <a href="#" class="hashtag-item hashtag-red">Lorem</a>
+                                <a href="#" class="hashtag-item hashtag-red">Ipsum</a>
+                                <a href="#" class="hashtag-item hashtag-red">Dolor</a>
+                                <a href="#" class="hashtag-item hashtag-red">Method name</a>
+                                <a href="#" class="hashtag-item hashtag-red">Method name</a>
+                            </div>
+                        </div>
+
+                        <div class="user-datail-item ">
+                            <div class="card-top">
+                                <h4 class="card-title">Research Interests:</h4>
+                                <a href="#" class="card-edit"><i class="ic ic-card-edit"></i></a>
+                            </div>
+                            <div class="hashtag-wrap">
+                                <a href="#" class="hashtag-item hashtag-blue">Method name</a>
+                                <a href="#" class="hashtag-item hashtag-blue">Lorem</a>
+                                <a href="#" class="hashtag-item hashtag-blue">Ipsum</a>
+                                <a href="#" class="hashtag-item hashtag-blue">Dolor</a>
+                                <a href="#" class="hashtag-item hashtag-blue">Method name</a>
+                                <a href="#" class="hashtag-item hashtag-blue">Method name</a>
+                            </div>
+                        </div>
+                        <div class="user-datail-item ">
+                            <div class="card-top">
+                                <h4 class="card-title">Disciplines:</h4>
+                                <a href="#" class="card-edit"><i class="ic ic-card-edit"></i></a>
+                            </div>
+                            <div class="hashtag-wrap">
+                                <a href="#" class="hashtag-item hashtag-grey">Marketing</a>
+                                <a href="#" class="hashtag-item hashtag-grey">Design</a>
+                            </div>
+                        </div>
+
+                        <div class="user-datail-item ">
+                            <div class="card-top">
+                                <h4 class="card-title">Referecne Style:</h4>
+                                <a href="#" class="card-edit"><i class="ic ic-card-edit"></i></a>
+                            </div>
+                            <div class="hashtag-wrap">
+                                <a href="#" class="hashtag-item hashtag-grey">Harvad</a>
+                                <a href="#" class="hashtag-item hashtag-grey">Oxford</a>
+                            </div>
+                        </div>
+
+                        <div class="user-datail-item user-datail-search">
+                            <div class="card-top">
+                                <form action="#" class="form-search form-search-input">
+                                    <div class="form-group form-group-search">
+                                        <input type="search" class="form-control form-search" id="search"
+                                               placeholder="Search editors">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="user-datail-item ">
+                            <div class="card-top">
+                                <h4 class="card-title">Recently Viewed:</h4>
+                            </div>
+                            <div class="hashtag-wrap">
+                                <a href="#" class="hashtag-item hashtag-grey">Harvad</a>
+                                <a href="#" class="hashtag-item hashtag-grey">Oxford</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-7 col-xl-8 ">
+                <div class="result-item card-item">
+                    <div class="card-top">
+                        <h4 class="card-title">About {{ object.username }}</h4>
+                        <a href="#" class="card-edit"><i class="ic ic-card-edit"></i></a>
+                    </div>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Quibusdam cupiditate nobis voluptatum sint rem aspernatur quod optio, facilis
+                        placeat, quidem quaerat amet impedit architecto maiores sapiente, tempore nostrum
+                        explicabo esse. Lorem ipsum dolor sit amet</p>
+                </div>
+
+                <div class="result-item card-item">
+                    <div class="card-top">
+                        <h4 class="card-title">Work Expirience</h4>
+                        <a href="#" class="card-edit"><i class="ic ic-card-edit"></i></a>
+                    </div>
+                    <div class="card-detail-item">
+                        <div class="card-detail">
+                            <div class="card-info-wrap">
+                                <h4 class="card-detail-title">Cabin crew world manager</h4>
+                                <a href="#" class="card-detail-link">British Airways</a>
+                                <p class="card-detail-date">March 1990 - Present (16 years 3 month )</p>
+                            </div>
+                            <div class="img-wrap">
+                                <img src="img/british-airways.png" alt="alt">
+                            </div>
+                        </div>
+
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            Quibusdam cupiditate nobis voluptatum sint rem aspernatur quod optio, facilis
+                            placeat, quidem quaerat amet impedit architecto maiores sapiente, tempore
+                            nostrum explicabo esse. Lorem ipsum dolor sit amet</p>
+                    </div>
+                    <div class="card-detail-item">
+                        <div class="card-detail">
+                            <div class="card-info-wrap">
+                                <h4 class="card-detail-title">Human resource director</h4>
+                                <a href="#" class="card-detail-link">Ulysse corp.</a>
+                                <p class="card-detail-date">March 1987 - March 1990 (3 years )</p>
+                            </div>
+                            <div class="img-wrap">
+                                <img src="img/ulysse.png" alt="alt">
+                            </div>
+                        </div>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            Quibusdam cupiditate nobis voluptatum sint rem aspernatur quod optio, facilis
+                            placeat, quidem quaerat amet impedit architecto maiores sapiente, tempore
+                            nostrum explicabo esse. Lorem ipsum dolor sit amet</p>
+                    </div>
+                </div>
+                <div class="result-item card-item">
+                    <div class="card-top">
+                        <h4 class="card-title">Academic Qualifications</h4>
+                        <a href="#" class="card-edit"><i class="ic ic-card-edit"></i></a>
+                    </div>
+                    <div class="card-detail-item">
+                        <div class="card-detail">
+                            <div class="card-info-wrap">
+                                <h4 class="card-detail-title">Harward University</h4>
+                                <a href="#" class="card-detail-link">Banchlor, Computer Science</a>
+                                <p class="card-detail-date">March 1987 - March 1990 (3 years )</p>
+                            </div>
+                            <div class="img-wrap img-sm">
+                                <img src="img/harvard.png" alt="harvard img">
+                            </div>
+                        </div>
+                        <div class="form-file">
+                            <span class="file-name selected">this_document_name.pdf</span>
+                        </div>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            Quibusdam cupiditate nobis voluptatum sint rem aspernatur quod optio, facilis
+                            placeat, quidem quaerat amet impedit architecto maiores sapiente, tempore
+                            nostrum explicabo esse. Lorem ipsum dolor sit amet</p>
+                    </div>
+                </div>
+                <div class="result-item card-item">
+                    <div class="card-top">
+                        <h4 class="card-title">Edited Papers</h4>
+                    </div>
+                    <div class="table-wrap">
+                        <table>
+                            <tr>
+                                <th>#</th>
+                                <th>Title</th>
+                                <th>Discipline</th>
+                                <th>Date</th>
+                                <th>Rating</th>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>Education</td>
+                                <td><span class="btn-table">Design</span></td>
+                                <td><span class="table-tate">Dec 22.16</span></td>
+                                <td>N/A</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>Education</td>
+                                <td><span class="btn-table">Design</span></td>
+                                <td><span class="table-tate">Dec 22.16</span></td>
+                                <td>N/A</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal paperModal-->
+<div class="modal fade" id="paperModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="modal-header">
+                <div class="title-wrap">
+                    <h2 class="section-title title-line">Submit a paper</h2>
+                </div>
+            </div>
+            <form action="#" class="profile-form">
+                <div class="row">
+                    <div class="form-group form-group-mb col-lg-6">
+                        <label for="title2" class="input-sub-title">TITLE</label>
+                        <input type="text" class="form-control light-input" id="title2" required
+                               placeholder=" ">
+                    </div>
+                    <div class="form-group form-group-mb col-lg-6">
+                        <label for="name" class="input-sub-title">UNIVERSITY</label>
+                        <input type="text" class="form-control light-input" id="name" required
+                               placeholder=" ">
+                    </div>
+                    <div class="form-group form-group-mb col-lg-6 ml-0">
+                        <label for="university" class="input-sub-title">UNIVERSITY</label>
+                        <input type="text" class="form-control light-input" id="university" required
+                               placeholder=" ">
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group form-group-mb form-full ">
+                            <label for="description" class="input-sub-title">DESCRIPTION</label>
+                            <textarea id="description" class="textarea"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group form-group-mb col-lg-6">
+                        <label for="first-name" class="input-sub-title">FIRST NAME</label>
+                        <input type="text" class="form-control light-input" id="first-name" required
+                               placeholder=" ">
+                    </div>
+                    <div class="form-group form-group-mb col-lg-6">
+                        <label for="last-name" class="input-sub-title">LAST NAME</label>
+                        <input type="text" class="form-control light-input" id="last-name" required
+                               placeholder=" ">
+                    </div>
+                    <div class="form-group form-group-mb col-lg-6">
+                        <label for="email" class="input-sub-title">email</label>
+                        <input type="email" class="form-control light-input" id="email" required
+                               placeholder=" ">
+                    </div>
+                    <div class="form-group form-group-mb col-lg-6">
+                        <label for="deadline" class="input-sub-title">DEADLINE</label>
+                        <input type="text" class="form-control light-input" id="deadline" required
+                               placeholder=" ">
+                    </div>
+                    <div class="form-group form-group-mb col-lg-6 ml-0">
+                        <label for="words-count" class="input-sub-title">WORDS COUNT OF THE PAPER</label>
+                        <input type="text" class="form-control light-input" id="words-count" required
+                               placeholder=" ">
+                    </div>
+                    <div class="col-12">
+                        <p class="input-sub-title ">PAPER</p>
+                        <div class="form-file form-group-mb">
+                            <input class="file-input" type="file" id="document">
+                            <label class="file-label" for="document"><span>+</span> Add document</label>
+                            <span class="file-name"></span>
+                        </div>
+                        <button class="btn btn-action btn-shadow-not">Submit</button>
+                        <button class="btn btn-action btn-shadow-not btn-white btn-cancel"  data-dismiss="modal" aria-label="Cancel">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal requestModal-->
+<div class="modal fade" id="requestModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="modal-header">
+                <div class="title-wrap">
+                    <h2 class="section-title title-line">Request a Quote</h2>
+                </div>
+            </div>
+            <form action="#" class="profile-form">
+                <div class="row">
+                    <div class="form-group form-group-mb col-lg-6">
+                        <label for="title" class="input-sub-title">TITLE</label>
+                        <input type="text" class="form-control light-input" id="title" required>
+                    </div>
+                    <div class="form-group form-group-mb col-lg-6">
+                        <label for="disciplines" class="input-sub-title">DISCIPLINES</label>
+                        <select name="to-year" id="disciplines" class="form-control light-input select">
+                            <option selected value></option>
+                            <option value="">DISCIPLINES</option>
+                            <option value="">DISCIPLINES</option>
+                        </select>
+                    </div>
+                    <div class="form-group form-group-mb col-lg-6">
+                        <label for="price" class="input-sub-title">PRICE</label>
+                        <input type="text" class="form-control light-input" id="price" required>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group form-group-mb form-full ">
+                            <label for="description2" class="input-sub-title">DESCRIPTION</label>
+                            <textarea id="description2" class="textarea"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group form-group-mb col-lg-6">
+                        <label for="name2" class="input-sub-title">FIRST NAME</label>
+                        <input type="text" class="form-control light-input" id="name2" required
+                               placeholder=" ">
+                    </div>
+                    <div class="form-group form-group-mb col-lg-6">
+                        <label for="last-name2" class="input-sub-title">LAST NAME</label>
+                        <input type="text" class="form-control light-input" id="last-name2" required
+                               placeholder=" ">
+                    </div>
+                    <div class="form-group form-group-mb col-lg-6">
+                        <label for="email2" class="input-sub-title">email</label>
+                        <input type="email" class="form-control light-input" id="email2" required
+                               placeholder=" ">
+                    </div>
+                    <div class="form-group form-group-mb col-lg-6 ml-0">
+                        <label for="words-ount" class="input-sub-title">WORDS COUNT OF THE PAPER</label>
+                        <input type="text" class="form-control light-input" id="words-ount" required
+                               placeholder=" ">
+                    </div>
+                    <div class="col-12">
+                        <p class="input-sub-title ">PAPER</p>
+                        <div class="form-file form-group-mb">
+                            <input class="file-input" type="file" id="document2">
+                            <label class="file-label" for="document"><span>+</span> Add document</label>
+                            <span class="file-name"></span>
+                        </div>
+                        <button class="btn btn-action btn-shadow-not">Submit</button>
+                        <button class="btn btn-action btn-shadow-not btn-white btn-cancel" data-dismiss="modal" aria-label="Close">Close</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

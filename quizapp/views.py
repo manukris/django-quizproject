@@ -3,9 +3,10 @@ from django.http import HttpResponse
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView
 from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
 from django.urls import reverse_lazy
 
-from .models import QuizUser,Qualification,Quiz,QuizAnswer
+from .models import QuizUser,Qualification,Quiz,QuizAnswer,Experience
 from .forms import QuizUserCreationForm,QualificationForm,ExperienceForm,QuizForm
 
 from django.views.decorators.csrf import csrf_exempt
@@ -29,8 +30,14 @@ class AdduserDetails(CreateView):
     #     obj = form.save()
     #     super().form_invalid(form)
     #     return HttpResponse(obj.pk)
-    def form_invalid(self, form):
-        return HttpResponse(form.errors)
+    # def form_invalid(self, form):
+    #     return HttpResponse(form.errors)
+
+
+
+class EditingServiceTemplate(TemplateView):
+    template_name = "quizapp/editing_services.html"
+
 
 
 
@@ -48,6 +55,8 @@ class QuizView(ListView):
     template_name = "quizapp/quiz.html"
     model         = Quiz
     paginate_by   = 1
+    ordering = ['?']
+
 
 
     def get_context_data(self, *, object_list=None, **kwargs):
@@ -84,6 +93,18 @@ def qualificationExpView(request):
     formdict['qform'] = qform
     formdict['eform'] = eform
     return render(request,'quizapp/registration2.html',formdict)
+
+class ShowUserProfile(DetailView):
+    model         = QuizUser
+    template_name = "quizapp/user.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['qualifications'] = Qualification.objects.filter(userid=self.object.pk)
+        context['experience'] = Experience.objects.filter(userid=self.object.pk)
+        return context
+
+
 
 
 

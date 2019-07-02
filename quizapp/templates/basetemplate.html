@@ -65,7 +65,7 @@
                                 Info
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item active" href="#">Editing Services</a>
+                                <a class="dropdown-item active" href="{% url 'editservice' %}">Editing Services</a>
                                 <a class="dropdown-item" href="#">Another action</a>
                             </div>
                         </li>
@@ -167,6 +167,9 @@
 <!-- custom scripts -->
 
 <script src="{% static 'js/scripts.min.js' %}"></script>
+
+
+<script src="{% static 'js/bootstrap-select-country.min.js' %}"></script>
 
 </body>
 </html>

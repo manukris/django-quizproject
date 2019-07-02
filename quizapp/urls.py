@@ -10,5 +10,7 @@ urlpatterns = [
     path('expadd/', views.addExperience, name="expadd"),
     path('quiz/', views.QuizView.as_view(), name="quiz"),
     path('quizformsubmit/', views.quizFormSubmit, name="quizsubmit"),
+    path('editservice/', views.EditingServiceTemplate.as_view(), name="editservice"),
+    path('profile/<int:pk>/', views.ShowUserProfile.as_view(), name="profile"),
 
 ]

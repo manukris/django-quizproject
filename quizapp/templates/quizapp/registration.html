@@ -28,74 +28,47 @@
 
 
 
-            <form  class="profile-form" method="post">
+
+
+
+
+
+
+            <form  class="profile-form" method="post" enctype="multipart/form-data">
 
                 <div class="slider-wraper section-content border-no">
+
+                        {% if form.errors %}
+            <div class="row">
+                <div class="col-12">
+
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+    {% endfor %}
+                </div>
+            </div>
+{% endif %}
                     <div class="profile-slider">
                         <label for="user-1">
                             <div class="user-wrap checked default">
-                                <input type="radio" id="user-1" name="user-photo" value="1" checked>
+                                <input type="file" id="user-1" name="profilepic">
                                 <img src="{% static 'img/userpic.png' %}" alt="alt">
                                 <span class="user-text">Default</span>
                             </div>
                         </label>
-                        <label for="user-2">
-                            <div class="user-wrap">
-                                <input type="radio" id="user-2" name="user-photo" value="2">
-                                <img src="{% static 'img/userpic2.png' %}" alt="alt">
-                                <span class="user-text">Selected</span>
-                            </div>
-                        </label>
-                        <label for="user-3">
-                            <div class="user-wrap">
-                                <input type="radio" id="user-3" name="user-photo" value="3">
-                                <img src="{% static 'img/userpic.png' %}" alt="alt">
-                                <span class="user-text">Selected</span>
-                            </div>
-                        </label>
-                        <label for="user-4">
-                            <div class="user-wrap">
-                                <input type="radio" id="user-4" name="user-photo" value="4">
-                                <img src="{% static 'img/userpic2.png' %}" alt="alt">
-                                <span class="user-text">Selected</span>
-                            </div>
-                        </label>
-                        <label for="user-5">
-                            <div class="user-wrap">
-                                <input type="radio" id="user-5" name="user-photo" value="5">
-                                <img src="{% static 'img/userpic2.png' %}" alt="alt">
-                                <span class="user-text">Selected</span>
-                            </div>
-                        </label>
-                        <label for="user-6">
-                            <div class="user-wrap">
-                                <input type="radio" id="user-6" name="user-photo" value="6">
-                                <img src="{% static 'img/userpic2.png' %}" alt="alt">
-                                <span class="user-text">Selected</span>
-                            </div>
-                        </label>
-                        <label for="user-7">
-                            <div class="user-wrap">
-                                <input type="radio" id="user-7" name="user-photo" value="7">
-                                <img src="{% static 'img/userpic.png' %}" alt="alt">
-                                <span class="user-text">Selected</span>
-                            </div>
-                        </label>
-                        <label for="user-8">
-                            <div class="user-wrap">
-                                <input type="radio" id="user-8" name="user-photo" value="8">
-                                <img src="{% static 'img/userpic.png' %}" alt="alt">
-                               <input type="hidden" value="img/userpic.png"  name="profile" >
-                                <span class="user-text">Selected</span>
-                            </div>
-                        </label>
-                        <label for="user-9">
-                            <div class="user-wrap">
-                                <input type="radio" id="user-9" name="user-photo" value="8">
-                                <img src="{% static 'img/userpic2.png' %}" alt="alt">
-                                <span class="user-text">Selected</span>
-                            </div>
-                        </label>
+
+
+
+
 
                     </div>
                 </div>
@@ -131,9 +104,10 @@
                                    placeholder=" ">
                         </div>
                         <div class="form-group form-group-mb col-lg-6">
-                            <label for="nationality" class="input-sub-title">nationality</label>
-                            <input type="text" class="form-control light-input" name="nationality" id="nationality" required
-                                   placeholder=" ">
+                            <label for="nationality" class="input-sub-title ">nationality</label>
+                            <select type="text" class="form-control light-input countrypicker" name="nationality" id="nationality" required >
+                                <option disabled selected value>Select Nationality</option>
+                            </select>
                         </div>
                         <div class="form-group form-group-mb col-lg-6">
                             <label for="phone" class="input-sub-title">phone</label>
@@ -251,7 +225,6 @@
                     <input type="submit" class="btn btn-shadow-not btn-sm" value=" Next ">
                 </div>
             </form>
-
         </div>
     </div>
 </section>

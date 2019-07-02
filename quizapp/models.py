@@ -5,30 +5,32 @@ from django.contrib.auth.models import AbstractUser
 
 
 class QuizUser(AbstractUser):
-    nationality = models.CharField(max_length=50,default="null")
-    phone       = models.CharField(max_length=50,default="null")
+    nationality      = models.CharField(max_length=50,default="null")
+    phone            = models.CharField(max_length=50,default="null")
     researchInterest = models.CharField(max_length=60,default="null")
-    disiplines = models.CharField(max_length=70,default="null")
-    researchMethod = models.CharField(max_length=200,default="null")
-    referenceStyle = models.CharField(max_length=200,default="null")
-    profile        = models.CharField(max_length=50,default="null")
-    street1 = models.CharField(max_length=100, default="null")
-    street2 = models.CharField(max_length=100, default="null")
-    state = models.CharField(max_length=100, default="null")
-    city = models.CharField(max_length=100, default="null")
-    postcode = models.CharField(max_length=100, default="null")
-    country = models.CharField(max_length=100, default="null")
+    disiplines       = models.CharField(max_length=70,default="null")
+    researchMethod   = models.CharField(max_length=200,default="null")
+    referenceStyle   = models.CharField(max_length=200,default="null")
+    profile          = models.CharField(max_length=50,default="null")
+    street1          = models.CharField(max_length=100, default="null")
+    street2          = models.CharField(max_length=100, default="null")
+    state            = models.CharField(max_length=100, default="null")
+    city             = models.CharField(max_length=100, default="null")
+    postcode         = models.CharField(max_length=100, default="null")
+    country          = models.CharField(max_length=100, default="null")
+    profilepic       = models.ImageField(upload_to='profile')
 
 
 class QualifyDegree(models.Model):
     degreename = models.CharField(max_length=100)
 
 
+
 class Qualification(models.Model):
     userid      = models.ForeignKey(QuizUser,on_delete=models.CASCADE)
     university  = models.CharField(max_length=50)
     degreelevel = models.CharField(max_length=50)
-    degree      = models.CharField(max_length=50)
+    degree      = models.ForeignKey(QualifyDegree,on_delete=models.CASCADE)
     startmonth  = models.CharField(max_length=50)
     endmonth    = models.CharField(max_length=50)
     startyear   = models.CharField(max_length=50)
@@ -63,7 +65,7 @@ class Quiz(models.Model):
 class QuizAnswer(models.Model):
     userid   = models.ForeignKey(QuizUser,on_delete=models.CASCADE)
     question = models.ForeignKey(Quiz, on_delete=models.CASCADE)
-    inputopt   = models.IntegerField(max_length=200)
+    inputopt   = models.IntegerField()
     status   = models.IntegerField(default=0)
 
 

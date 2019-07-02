@@ -7,7 +7,7 @@ class QuizUserCreationForm(UserCreationForm):
 
     class Meta(UserCreationForm):
         model = QuizUser
-        fields = ('username','first_name','password1','password2', 'email','nationality','phone','researchInterest','disiplines','researchMethod','referenceStyle','profile','street1','street2','state','city','postcode','country')
+        fields = ('username','first_name','password1','password2', 'email','nationality','phone','researchInterest','disiplines','researchMethod','referenceStyle','street1','street2','state','city','postcode','country','profilepic')
 
 class QualificationForm(ModelForm):
     class Meta:

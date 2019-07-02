@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'quizonline.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',# pip install psycopg2
-        'NAME': 'djquizdb',
+        'NAME': 'djquizfinal',
         'USER': 'psuser',
         'PASSWORD': 'root123',
         'HOST': 'localhost',
@@ -124,7 +124,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 AUTH_USER_MODEL = 'quizapp.Quizuser' #
+
 STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+MEDIA_ROOT  = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
 django_heroku.settings(locals())
