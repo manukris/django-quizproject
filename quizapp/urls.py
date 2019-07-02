@@ -14,3 +14,5 @@ urlpatterns = [
     path('profile/<int:pk>/', views.ShowUserProfile.as_view(), name="profile"),
 
 ]
+
+

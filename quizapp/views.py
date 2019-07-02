@@ -15,7 +15,6 @@ from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
 
-
 class Adduser(CreateView):
     template_name = 'quizapp/adduser.html'
     form_class = QuizUserCreationForm
@@ -37,7 +36,6 @@ class AdduserDetails(CreateView):
 
 class EditingServiceTemplate(TemplateView):
     template_name = "quizapp/editing_services.html"
-
 
 
 
@@ -104,11 +102,6 @@ class ShowUserProfile(DetailView):
         context['experience'] = Experience.objects.filter(userid=self.object.pk)
         return context
 
-
-
-
-
-
 @csrf_exempt
 def addQualification(request):
     if request.method == 'POST':
@@ -132,9 +125,4 @@ def addExperience(request):
             experience.userid = QuizUser.objects.get(pk=2)
             experience.save()
             return HttpResponse("Experience Added")
-
-
-
-
-
 
