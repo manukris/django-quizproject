@@ -16,7 +16,7 @@ class UserNations(models.Model):
 
 
 class QuizUser(AbstractUser):
-    nationality      = models.IntegerField()
+    nationality      = models.IntegerField(default=0)
     phone            = models.CharField(max_length=50,default="null")
     researchInterest = models.CharField(max_length=60,default="null")
     disiplines       = models.CharField(max_length=70,default="null")
@@ -29,7 +29,7 @@ class QuizUser(AbstractUser):
     city             = models.CharField(max_length=100, default="null")
     postcode         = models.CharField(max_length=100, default="null")
     country          = models.ForeignKey(UserNations,on_delete=models.CASCADE,default=1)
-    profilepic       = models.ImageField(upload_to='profile')
+    profilepic       = models.ImageField(upload_to='profile',default="profile.jpg")
 
 
 class QualifyDegree(models.Model):
