@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'quizonline.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',# pip install psycopg2
-        'NAME': 'djquizfinal',
+        'NAME': 'djtestdb',
         'USER': 'psuser',
         'PASSWORD': 'root123',
         'HOST': 'localhost',

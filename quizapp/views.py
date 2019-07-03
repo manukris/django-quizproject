@@ -6,7 +6,7 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.urls import reverse_lazy
 
-from .models import QuizUser,Qualification,Quiz,QuizAnswer,Experience
+from .models import QuizUser,Qualification,Quiz,QuizAnswer,Experience,UserNations
 from .forms import QuizUserCreationForm,QualificationForm,ExperienceForm,QuizForm
 
 from django.views.decorators.csrf import csrf_exempt
@@ -24,6 +24,12 @@ class AdduserDetails(CreateView):
     template_name = 'quizapp/registration.html'
     form_class = QuizUserCreationForm
     success_url = reverse_lazy('reg2')
+
+    def get_context_data(self, **kwargs):
+        contextData = super().get_context_data(object_list=None, **kwargs)
+        contextData['nations'] = UserNations.objects.all()
+        return contextData
+
 
     # def form_valid(self, form):
     #     obj = form.save()

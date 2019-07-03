@@ -4,8 +4,19 @@ from django.contrib.auth.models import AbstractUser
 # Create your models here.
 
 
+
+
+class UserNations(models.Model):
+    country = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.country
+
+
+
+
 class QuizUser(AbstractUser):
-    nationality      = models.CharField(max_length=50,default="null")
+    nationality      = models.IntegerField()
     phone            = models.CharField(max_length=50,default="null")
     researchInterest = models.CharField(max_length=60,default="null")
     disiplines       = models.CharField(max_length=70,default="null")
@@ -17,7 +28,7 @@ class QuizUser(AbstractUser):
     state            = models.CharField(max_length=100, default="null")
     city             = models.CharField(max_length=100, default="null")
     postcode         = models.CharField(max_length=100, default="null")
-    country          = models.CharField(max_length=100, default="null")
+    country          = models.ForeignKey(UserNations,on_delete=models.CASCADE,default=1)
     profilepic       = models.ImageField(upload_to='profile')
 
 
@@ -50,17 +61,13 @@ class Experience(models.Model):
     iscurrent = models.BooleanField(default=False)
 
 
-
-
-
-
 class Quiz(models.Model):
     question = models.TextField()
     option1  = models.CharField(max_length=200)
     option2  = models.CharField(max_length=200)
     option3  = models.CharField(max_length=200)
     option4  = models.CharField(max_length=200)
-    answer   = models.IntegerField(max_length=200)
+    answer   = models.IntegerField()
 
 class QuizAnswer(models.Model):
     userid   = models.ForeignKey(QuizUser,on_delete=models.CASCADE)
