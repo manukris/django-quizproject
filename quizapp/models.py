@@ -22,7 +22,7 @@ class QuizUser(AbstractUser):
     phone            = models.CharField(max_length=50,default="null")
     researchInterest = models.CharField(max_length=60,default="null")
     disiplines       = models.CharField(max_length=70,default="null")
-    researchMethod   = models.CharField(max_length=200,default="null")
+    researchMethod   = models.CharField(max_length=70,default="null")
     referenceStyle   = models.CharField(max_length=200,default="null")
     profile          = models.CharField(max_length=50,default="null")
     street1          = models.CharField(max_length=100, default="null")
@@ -34,8 +34,15 @@ class QuizUser(AbstractUser):
     profilepic       = models.ImageField(upload_to='profile',default="profile.jpg")
 
 
+
+
+
+
 class QualifyDegree(models.Model):
     degreename = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.degreename
 
 
 

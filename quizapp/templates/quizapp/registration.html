@@ -14,9 +14,9 @@
                     <h2 class="section-title title-line">Registration</h2>
                 </div>
                 <div class="reference">
-                    <img src="{% static 'img/australia-flag.svg' %}" alt="alt">
-                    <p class="text">You must have an <a href="#" target="_blank">Australian Bank</a> account
-                        to register <span><sup class="requirement">*</sup></span></p>
+<!--                    <img src="{% static 'img/australia-flag.svg' %}" alt="alt">-->
+<!--                    <p class="text">You must have an <a href="#" target="_blank">Australian Bank</a> account-->
+<!--                        to register <span><sup class="requirement">*</sup></span></p>-->
                 </div>
                 <div class="row">
                     <div class="col-12">
@@ -62,20 +62,14 @@
 {% endif %}
 
 
-
-
                     <div class="profile-slider">
                         <label for="user-1">
                             <div class="user-wrap checked default">
-                                <input type="file" id="user-1" name="profilepic">
+                                <input type="file" id="user-1" name="profilepic" required>
                                 <img src="{% static 'img/userpic.png' %}" alt="alt">
                                 <span class="user-text">Default</span>
                             </div>
                         </label>
-
-
-
-
 
 
                     </div>
@@ -108,7 +102,7 @@
                         </div>
                         <div class="form-group form-group-mb col-lg-6">
                             <label for="email" class="input-sub-title">email</label>
-                            <input type="email" class="form-control light-input" id="email" name="email" required
+                            <input type="email"  class="form-control light-input" id="email" name="email" required
                                    placeholder=" ">
                         </div>
                         <div class="form-group form-group-mb col-lg-6">
@@ -144,17 +138,17 @@
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" name="researchMethod" type="checkbox" checked
                                            id="inlineCheckbox1"
-                                           value="option1">
+                                           value="1">
                                     <label class="form-check-label" for="inlineCheckbox1">Quantitative</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
-                                           value="option2">
+                                    <input class="form-check-input" name="researchMethod" type="checkbox" id="inlineCheckbox2"
+                                           value="2">
                                     <label class="form-check-label" for="inlineCheckbox2">Qualitative</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
-                                           value="option3">
+                                    <input class="form-check-input" name="researchMethod" type="checkbox" id="inlineCheckbox3"
+                                           value="3">
                                     <label class="form-check-label" for="inlineCheckbox3">Others</label>
                                 </div>
                             </div>
@@ -166,27 +160,27 @@
                                 <p class="input-sub-title ">REFENCE STYLE</p>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" name="referenceStyle" type="checkbox" checked id="harvard"
-                                           value="refstyle">
+                                           value="1">
                                     <label class="form-check-label" for="harvard">Harvard</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="oxford" value="">
+                                    <input class="form-check-input" name="referenceStyle" type="checkbox" id="oxford" value="2">
                                     <label class="form-check-label" for="oxford">Oxford</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="chicago" value="">
+                                    <input class="form-check-input" name="referenceStyle" type="checkbox" id="chicago" value="3">
                                     <label class="form-check-label" for="chicago">Chicago</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="apa" value="">
+                                    <input class="form-check-input" name="referenceStyle" type="checkbox" id="apa" value="4">
                                     <label class="form-check-label" for="apa">APA</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="mla" value="">
+                                    <input class="form-check-input" name="referenceStyle" type="checkbox" id="mla" value="5">
                                     <label class="form-check-label" for="mla">MLA</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="others" value="">
+                                    <input class="form-check-input" name="referenceStyle" type="checkbox" id="others" value="6">
                                     <label class="form-check-label" for="others">Others</label>
                                 </div>
                             </div>

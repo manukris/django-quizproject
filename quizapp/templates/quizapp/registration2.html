@@ -21,6 +21,8 @@
                         </div>
 
 
+
+
                         <div class="form-group form-group-mb col-lg-6">
                             <label for="university" class="input-sub-title">UNIVERSITY</label>
                             <input type="text" name="university" class="form-control light-input" id="university" name="university"  required
@@ -33,10 +35,13 @@
                         </div>
                         <div class="form-group form-group-mb col-lg-6">
                             <label for="degree" class="input-sub-title">DEGREE</label>
-                            <select name="degree" id="degree"  class="form-control light-input select">
-                                <option></option>
-                                <option value="deg1">degree</option>
-                                <option value="deg2">degree</option>
+                            <select name="degree" id="degree"  class="form-control light-input select" required>
+                                <option value="">select degree</option>
+
+                                {% for degree in degrees %}
+
+                                    <option value="{{ degree.pk }}">{{ degree }}</option>
+                                {% endfor %}
                             </select>
                         </div>
                         <div class="clean-input col-lg-6"></div>
@@ -392,25 +397,6 @@ $("body").on("submit",".qualify-add",function(e){
     e.preventDefault();
 
     var formData = new FormData($(this).get(0));
-
-
-    var table = "<tr> <th> University </th> <td> "+formData.get('university')+"<td></tr>";
-        table += "<tr> <th> Degree level </th> <td> "+formData.get('degreelevel')+"<td></tr>"
-        table += "<tr> <th> Degree </th> <td> "+formData.get('degree')+"<td></tr>"
-        table += "<tr> <th> Startmonth </th> <td> "+formData.get('startmonth')+"<td></tr>"
-        table += "<tr> <th> Endmonth </th> <td> "+formData.get('endmonth')+"<td></tr>"
-        table += "<tr> <th> Startyear </th> <td> "+formData.get('startyear')+"<td></tr>"
-        table += "<tr> <th> Endyear </th> <td> "+formData.get('endyear')+"<td></tr>"
-        table += "<tr> <th> File </th> <td> "+formData.get('document').name+"<td></tr>"
-
-
-    $(".qulifytable").append(table);
-
-
-    $("#qualifyModal").modal();
-
-
-    return false;
 
 
     var form = $(this);

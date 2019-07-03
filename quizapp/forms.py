@@ -5,9 +5,26 @@ from .models import QuizUser,Qualification,Experience,Quiz,QuizAnswer
 
 class QuizUserCreationForm(UserCreationForm):
 
+    rmethods = (
+                ("1", "Quantitative"),
+                ("2", "Qualitative"),
+                ("3", "Others"),
+               )
+    rstyle = (
+               ("1","Harvard"),
+               ("2","Oxford"),
+               ("3","Chicago"),
+               ("4","APA"),
+               ("5","MLA"),
+               ("6","Others"),
+             )
+    researchMethod = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple,choices=rmethods)
+    referenceStyle = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple,choices=rstyle)
+
+
     class Meta(UserCreationForm):
         model = QuizUser
-        fields = ('username','first_name','password1','password2', 'email','phone','researchInterest','disiplines','researchMethod','referenceStyle','street1','street2','state','city','postcode','country','nationality','profilepic')
+        fields = ('username','first_name','password1','password2', 'email','phone','researchInterest','disiplines','street1','street2','state','city','postcode','country','nationality','profilepic')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -15,6 +32,7 @@ class QuizUserCreationForm(UserCreationForm):
             'id': 'country',
             'class': 'form-control light-input select',
             })
+
 
 class QualificationForm(ModelForm):
     class Meta:

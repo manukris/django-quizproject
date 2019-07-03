@@ -6,7 +6,7 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.urls import reverse_lazy
 
-from .models import QuizUser,Qualification,Quiz,QuizAnswer,Experience,UserNations
+from .models import QuizUser,Qualification,Quiz,QuizAnswer,Experience,UserNations,QualifyDegree
 from .forms import QuizUserCreationForm,QualificationForm,ExperienceForm,QuizForm
 
 from django.views.decorators.csrf import csrf_exempt
@@ -30,11 +30,23 @@ class AdduserDetails(CreateView):
         contextData['nations'] = UserNations.objects.all()
         return contextData
 
+    def form_valid(self, form):
 
-    # def form_valid(self, form):
-    #     obj = form.save()
-    #     super().form_invalid(form)
-    #     return HttpResponse(obj.pk)
+        if form.is_valid():
+
+            user = form.save(commit=False)
+            researchMethod = form.cleaned_data['researchMethod']
+            referenceStyle = form.cleaned_data['referenceStyle']
+            researchMethod = ",".join(researchMethod)
+            referenceStyle = ",".join(referenceStyle)
+            user.researchMethod = researchMethod
+            user.referenceStyle = referenceStyle
+            user.save()
+            userid = user.pk
+            self.request.session['userid'] = userid
+            return super().form_valid(form)
+
+
     # def form_invalid(self, form):
     #     return HttpResponse(form.errors)
 
@@ -94,9 +106,14 @@ def qualificationExpView(request):
     qform = QualificationForm()
     eform = ExperienceForm()
     formdict = dict()
+    formdict['degrees'] = QualifyDegree.objects.all()
     formdict['qform'] = qform
     formdict['eform'] = eform
     return render(request,'quizapp/registration2.html',formdict)
+
+
+
+############################################USER PROFILE ##################################################################
 
 class ShowUserProfile(DetailView):
     model         = QuizUser
@@ -104,9 +121,16 @@ class ShowUserProfile(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['object'].nationality = UserNations.objects.get(pk=int(context['object'].nationality))
+        context['object'].researchMethod = context['object'].researchMethod.split(',')
+        context['object'].referenceStyle = context['object'].referenceStyle.split(',')
         context['qualifications'] = Qualification.objects.filter(userid=self.object.pk)
         context['experience'] = Experience.objects.filter(userid=self.object.pk)
         return context
+
+
+
+############################################                  ##################################################################
 
 @csrf_exempt
 def addQualification(request):
@@ -114,8 +138,13 @@ def addQualification(request):
         form = QualificationForm(request.POST,request.FILES)
         if form.is_valid():
             qualification = form.save(commit=False)
-            qualification.userid = QuizUser.objects.get(pk=2)
-            qualification.save()
+            if 'userid' in request.session:
+                userid = request.session['userid']
+                qualification.userid = QuizUser.objects.get(pk=userid)
+                qualification.save()
+            else:
+                return HttpResponse("Invalid User")
+
 
             return HttpResponse("Qualification added")
         else:
@@ -127,8 +156,11 @@ def addExperience(request):
     if request.method == 'POST':
         form = ExperienceForm(request.POST)
         if form.is_valid():
-            experience = form.save(commit=False)
-            experience.userid = QuizUser.objects.get(pk=2)
-            experience.save()
+            if 'userid' in request.session:
+                userid = request.session['userid']
+                experience = form.save(commit=False)
+                experience.userid = QuizUser.objects.get(pk=userid)
+                experience.save()
+            else:
+                return HttpResponse("Invalid User")
             return HttpResponse("Experience Added")
-
