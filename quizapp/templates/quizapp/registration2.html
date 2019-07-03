@@ -327,7 +327,7 @@ $(document).ready(function () {
                 $(this).trigger('submit');
             });
 
-        // window.location.href = "/";
+         window.location.href = "{% url 'profile' pk=request.session.userid %}";
 
 
     });
@@ -343,7 +343,7 @@ $(document).ready(function () {
 
                 $(this).trigger('submit');
             });
-         //window.location.href = "/";
+         window.location.href = "{% url 'profile' pk=request.session.userid %}";
 
     });
 

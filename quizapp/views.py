@@ -5,6 +5,7 @@ from django.views.generic.edit import CreateView
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.urls import reverse_lazy
+from django.shortcuts import redirect
 
 from .models import QuizUser,Qualification,Quiz,QuizAnswer,Experience,UserNations,QualifyDegree
 from .forms import QuizUserCreationForm,QualificationForm,ExperienceForm,QuizForm
@@ -103,13 +104,17 @@ def quizFormSubmit(request):
 
 
 def qualificationExpView(request):
-    qform = QualificationForm()
-    eform = ExperienceForm()
-    formdict = dict()
-    formdict['degrees'] = QualifyDegree.objects.all()
-    formdict['qform'] = qform
-    formdict['eform'] = eform
-    return render(request,'quizapp/registration2.html',formdict)
+    if 'userid' in request.session:
+        qform = QualificationForm()
+        eform = ExperienceForm()
+        formdict = dict()
+        formdict['degrees'] = QualifyDegree.objects.all()
+        formdict['qform'] = qform
+        formdict['eform'] = eform
+
+        return render(request,'quizapp/registration2.html',formdict)
+    else:
+        return  redirect('/')
 
 
 
@@ -149,7 +154,6 @@ def addQualification(request):
             return HttpResponse("Qualification added")
         else:
             return HttpResponse(form)
-
 
 @csrf_exempt
 def addExperience(request):
