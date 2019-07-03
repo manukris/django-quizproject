@@ -15,6 +15,8 @@ class UserNations(models.Model):
 
 
 
+
+
 class QuizUser(AbstractUser):
     nationality      = models.IntegerField(default=0)
     phone            = models.CharField(max_length=50,default="null")
