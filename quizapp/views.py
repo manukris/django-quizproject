@@ -102,13 +102,33 @@ def quizFormSubmit(request):
             return HttpResponse(form.errors)
 
 
+def qualifyDel(request,id):
+    qualify = Qualification.objects.get(pk=id)
+    qualify.delete()
+    return HttpResponse("deleted")
+
+
+def expDel(request,id):
+    exp = Experience.objects.get(pk=id)
+    exp.delete()
+    return HttpResponse("deleted")
+
 
 def qualificationExpView(request):
     if 'userid' in request.session:
         qform = QualificationForm()
         eform = ExperienceForm()
         formdict = dict()
+
+        qualifications = Qualification.objects.filter(userid=request.session['userid'])
+        experience     = Experience.objects.filter(userid=request.session['userid'])
+        if len(qualifications) != 0:
+            formdict['qualifications'] = qualifications
+        if len(experience) != 0:
+            formdict['experience'] = experience
+
         formdict['degrees'] = QualifyDegree.objects.all()
+
         formdict['qform'] = qform
         formdict['eform'] = eform
 
@@ -167,4 +187,6 @@ def addExperience(request):
                 experience.save()
             else:
                 return HttpResponse("Invalid User")
-            return HttpResponse("Experience Added")
+        else:
+            return HttpResponse("Form invalid")
+        return HttpResponse("Experience Added")

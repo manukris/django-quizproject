@@ -76,10 +76,6 @@ class Quote(models.Model):
     userid = models.ForeignKey(QuizUser,on_delete=models.CASCADE)
 
 
-
-
-
-
 class Quiz(models.Model):
     question = models.TextField()
     option1  = models.CharField(max_length=200)

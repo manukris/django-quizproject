@@ -12,6 +12,8 @@ urlpatterns = [
     path('quizformsubmit/', views.quizFormSubmit, name="quizsubmit"),
     path('editservice/', views.EditingServiceTemplate.as_view(), name="editservice"),
     path('profile/<int:pk>/', views.ShowUserProfile.as_view(), name="profile"),
+    path('qualifydel/<int:id>/', views.qualifyDel, name="qualifydel"),
+    path('expdel/<int:id>/', views.expDel, name="expdel"),
 
 ]
 

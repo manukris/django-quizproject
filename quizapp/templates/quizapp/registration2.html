@@ -14,6 +14,9 @@
                     <h2 class="section-title title-line">Registration</h2>
                 </div>
 
+
+                {% if qualifications %}
+
                 <div class="row table-wrap" id="qtable">
                         <table class="col-12">
                             <tbody id="qtable-body">
@@ -26,9 +29,27 @@
                                 <th>End</th>
                                 <th>Action</th>
                             </tr>
+
+                             {% for qualify in qualifications %}
+
+                                <tr>
+                                    <td>{{  forloop.counter  }}</td>
+                                    <td>{{ qualify.university }}</td>
+                                    <td>{{ qualify.degreelevel }}</td>
+                                    <td>{{ qualify.degree }}</td>
+                                    <td>{{ qualify.startmonth }} - {{ qualify.startyear }}</td>
+                                    <td>{{ qualify.endyear }} - {{ qualify.endyear }}</td>
+                                    <td><button class="btn btn-action btn-shadow-not btn-qualify-del" rel="{{ qualify.pk }}">Delete</button></td>
+                                </tr>
+
+                             {% endfor %}
                         </tbody>
                         </table>
                     </div>
+
+                 {% endif %}
+
+
 
                 <br>
 
@@ -106,7 +127,43 @@
 
                    <div class="row content-line" ></div>
 
+                {% if experience %}
+
+                <div class="row table-wrap" id="etable">
+                        <table class="col-12">
+                            <tbody id="etable-body">
+                            <tr>
+                                <th>#</th>
+                                <th>Company</th>
+                                <th>Title</th>
+                                <th>Location</th>
+                                <th>Start</th>
+                                <th>End</th>
+                                <th>Action</th>
+                            </tr>
+
+                             {% for exp in experience %}
+
+                                <tr>
+                                    <td>{{  forloop.counter  }}</td>
+                                    <td>{{ exp.company }}</td>
+                                    <td>{{ exp.title  }}</td>
+                                    <td>{{ exp.location  }}</td>
+                                    <td>{{ exp.startmonth }} - {{ exp.startyear }}</td>
+                                    <td>{{ exp.endyear }} - {{ exp.endyear }}</td>
+                                    <td><button class="btn btn-action btn-shadow-not btn-exp-del" rel="{{ exp.pk }}">Delete</button></td>
+                                </tr>
+
+                             {% endfor %}
+                        </tbody>
+                        </table>
+                    </div>
+
+                 {% endif %}
+
                     <form class="row content exp-add" method="post">
+
+                        {% csrf_token %}
                         <div class="col-12">
                             <div class="form-check-wraper">
                                 <h2 class="section-title section-title-sm">Experiences</h2>
@@ -332,6 +389,36 @@ $(document).ready(function () {
 
 
 
+
+    $(".btn-qualify-del").click(function(){
+
+
+        var id = $(this).attr('rel');
+
+         $.get("/quiz/qualifydel/"+id, function(data, status){
+
+                 window.location.reload();
+
+
+        });
+    });
+
+
+    $(".btn-exp-del").click(function(){
+
+
+        var id = $(this).attr('rel');
+
+         $.get("/quiz/expdel/"+id, function(data, status){
+
+                 window.location.reload();
+
+
+        });
+    });
+
+
+
     $(".finalsub").click(function(){
 
 
@@ -412,15 +499,7 @@ $("body").on("submit",".qualify-add",function(e){
     e.preventDefault();
 
     var formData = new FormData($(this).get(0));
-      var tablerow ='    <tr>'+
-                               +' <td>1</td>'
-                                +'<td>Education</td>'
-                                +'<td><span class="btn-table">formData.</span></td>'
-                                +'<td><span class="table-tate">Dec 22.16</span></td>'
-                                +'<td>N/A</td>'
-                                +'<td>N/A</td>'
-                                +'<td>N/A</td>'
-                            +'</tr>';
+
 
 
 
@@ -439,7 +518,7 @@ $("body").on("submit",".qualify-add",function(e){
         $(".file-name").removeClass("selected");
 
 
-         $("#qtable-body").append(tablerow);
+      //   $("#qtable-body").append(tablerow);
 
            if (form.hasClass('content-line'))
            {
@@ -450,6 +529,8 @@ $("body").on("submit",".qualify-add",function(e){
 
                 form.trigger('reset');
           }
+
+           window.location.reload();
 
        }
     });
@@ -481,6 +562,9 @@ $("body").on("submit",".exp-add",function(e){
 
                 form.trigger('reset');
           }
+
+           window.location.reload();
+
        }
     });
 
