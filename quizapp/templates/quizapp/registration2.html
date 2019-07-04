@@ -14,12 +14,30 @@
                     <h2 class="section-title title-line">Registration</h2>
                 </div>
 
+                <div class="row table-wrap" id="qtable">
+                        <table class="col-12">
+                            <tbody id="qtable-body">
+                            <tr>
+                                <th>#</th>
+                                <th>University</th>
+                                <th>Degreelevel</th>
+                                <th>Degree</th>
+                                <th>Start</th>
+                                <th>End</th>
+                                <th>Action</th>
+                            </tr>
+                        </tbody>
+                        </table>
+                    </div>
+
+                <br>
+
+
                      <form class="row content qualify-add" method="post" ENCTYPE="multipart/form-data">
                         <div class="col-12">
                             <h2 class="section-title section-title-sm">Qualifications</h2>
                             <button type="button" class="btn btn-shadow-not btn-white btn-add"><span>+ </span> Add</button>
                         </div>
-
 
 
 
@@ -378,9 +396,6 @@ $(document).ready(function () {
 
 
 
-
-
-
     $(".yearpicker").datepicker({
          autoclose: true,
          minViewMode: 2,
@@ -397,6 +412,16 @@ $("body").on("submit",".qualify-add",function(e){
     e.preventDefault();
 
     var formData = new FormData($(this).get(0));
+      var tablerow ='    <tr>'+
+                               +' <td>1</td>'
+                                +'<td>Education</td>'
+                                +'<td><span class="btn-table">formData.</span></td>'
+                                +'<td><span class="table-tate">Dec 22.16</span></td>'
+                                +'<td>N/A</td>'
+                                +'<td>N/A</td>'
+                                +'<td>N/A</td>'
+                            +'</tr>';
+
 
 
     var form = $(this);
@@ -413,6 +438,8 @@ $("body").on("submit",".qualify-add",function(e){
         $(".file-name").html("");
         $(".file-name").removeClass("selected");
 
+
+         $("#qtable-body").append(tablerow);
 
            if (form.hasClass('content-line'))
            {
