@@ -14,6 +14,7 @@ urlpatterns = [
     path('profile/<int:pk>/', views.ShowUserProfile.as_view(), name="profile"),
     path('qualifydel/<int:id>/', views.qualifyDel, name="qualifydel"),
     path('expdel/<int:id>/', views.expDel, name="expdel"),
+    path('expimageupdate/', views.expImage, name="expimage"),
 
 ]
 

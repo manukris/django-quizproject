@@ -8,7 +8,7 @@ from django.urls import reverse_lazy
 from django.shortcuts import redirect
 
 from .models import QuizUser,Qualification,Quiz,QuizAnswer,Experience,UserNations,QualifyDegree
-from .forms import QuizUserCreationForm,QualificationForm,ExperienceForm,QuizForm
+from .forms import QuizUserCreationForm,QualificationForm,ExperienceForm,QuizForm,ExpImageForm
 
 from django.views.decorators.csrf import csrf_exempt
 
@@ -96,8 +96,6 @@ def quizFormSubmit(request):
             quizanswer.status = status
             quizanswer.save()
             return HttpResponse("submit")
-
-
         else:
             return HttpResponse(form.errors)
 
@@ -106,6 +104,24 @@ def qualifyDel(request,id):
     qualify = Qualification.objects.get(pk=id)
     qualify.delete()
     return HttpResponse("deleted")
+
+
+@csrf_exempt
+def expImage(request):
+    if request.method == 'POST':
+        form = ExpImageForm(request.POST,request.FILES)
+        if form.is_valid():
+            id = form.cleaned_data['expid']
+            image = form.cleaned_data['icons']
+
+            exp = Experience.objects.get(pk=id)
+            exp.icons = image
+            exp.save()
+            return HttpResponse("added")
+        else:
+            return HttpResponse(form.errors)
+
+
 
 
 def expDel(request,id):
@@ -146,11 +162,12 @@ class ShowUserProfile(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['object'].nationality = UserNations.objects.get(pk=int(context['object'].nationality))
+        context['object'].nationality    = UserNations.objects.get(pk=int(context['object'].nationality))
         context['object'].researchMethod = context['object'].researchMethod.split(',')
         context['object'].referenceStyle = context['object'].referenceStyle.split(',')
-        context['qualifications'] = Qualification.objects.filter(userid=self.object.pk)
-        context['experience'] = Experience.objects.filter(userid=self.object.pk)
+        context['qualifications']        = Qualification.objects.filter(userid=self.object.pk)
+        context['experience']            = Experience.objects.filter(userid=self.object.pk)
+        context['expimageform']          = ExpImageForm()
         return context
 
 

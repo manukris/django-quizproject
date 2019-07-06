@@ -48,4 +48,15 @@ class QuizForm(ModelForm):
         model  = QuizAnswer
         fields = ['inputopt','question']
 
+class ExpImageForm(ModelForm):
+    expid = forms.CharField(max_length=20)
+    class Meta:
+        model = Experience
+        fields = ['icons']
+
+class QualifyImageForm(ModelForm):
+    expid = forms.CharField(max_length=20)
+    class Meta:
+        model = Qualification
+        fields = ['icons']
 

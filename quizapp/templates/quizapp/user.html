@@ -31,7 +31,7 @@
                         <h3 class="user-name">{{ object.username }}</h3>
                         <div class="rating-wrap rating-not-hover">
                             <fieldset class="rating ">
-                                <form action="">
+                                <form action="#">
                                     <input type="radio" id="star5" name="rating" value="5"/><label
                                         class="full" for="star5"></label>
                                     <input type="radio" id="star4half" name="rating"
@@ -212,7 +212,11 @@
                                 <p class="card-detail-date">{{ exp.startmonth}} {{ exp.startyear }} - {{ exp.endmonth}} {{ exp.endyear }}       </p>
                             </div>
                             <div class="img-wrap">
-                                <img src="{% static 'img/british-airways.png' %}" alt="alt">
+
+
+                                <img src="/media/{{exp.icons}}" class="exp-image" rel="{{ exp.id }}" alt="alt">
+
+
                             </div>
                         </div>
 
@@ -223,6 +227,8 @@
                     </div>
 
                     {% endfor %}
+
+
 
 
 <!--                    <div class="card-detail-item">-->
@@ -254,7 +260,6 @@
                         <h4 class="card-title">Academic Qualifications</h4>
                         <a href="#" class="card-edit"><i class="ic ic-card-edit"></i></a>
                     </div>
-
 
 
 
@@ -413,6 +418,7 @@
                 </div>
             </div>
             <form action="#" class="profile-form">
+
                 <div class="row">
                     <div class="form-group form-group-mb col-lg-6">
                         <label for="title" class="input-sub-title">TITLE</label>
@@ -471,4 +477,147 @@
         </div>
     </div>
 </div>
+
+
+
+<div class="modal fade " id="exp-image" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-sm " role="document">
+        <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="modal-header">
+                <div class="title-wrap">
+                    <h2 class="section-title title-line">Update Image</h2>
+                </div>
+            </div>
+
+            <form  class="profile-form exp-image-form">
+                    <div class="col-12">
+                        <p class="input-sub-title ">PAPER</p>
+                        <div class="form-file form-group-mb">
+                            <input type="hidden" id="exp-id" value="" name="expid">
+                            <input class="file-input" name="icons" type="file" id="documentexp">
+                            <label class="file-label" for="documentexp"><span>+</span> Add document</label>
+                            <span class="file-name"></span>
+                        </div>
+                        <button type="submit" class="btn btn-action btn-shadow-not">Submit</button>
+                        <button class="btn btn-action btn-shadow-not btn-white btn-cancel" data-dismiss="modal" aria-label="Close">Close</button>
+                    </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade " id="nationality" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-sm " role="document">
+        <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="modal-header">
+                <div class="title-wrap">
+                    <h2 class="section-title title-line">Update Image</h2>
+                </div>
+            </div>
+
+            <form  class="profile-form user-update-form" >
+                    <div class="col-12">
+                        <p class="input-sub-title ">Image</p>
+                         <div class="form-group form-group-mb col-lg-6">
+                        <label for="nation" class="input-sub-title">Change Nationality</label>
+                        <input type="text" class="form-control light-input" id="nation"  required>
+                    </div>
+                        <button type="submit" class="btn btn-action btn-shadow-not">Submit</button>
+                        <button class="btn btn-action btn-shadow-not btn-white btn-cancel" data-dismiss="modal" aria-label="Close">Close</button>
+                    </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade " id="quli-image" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-sm " role="document">
+        <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="modal-header">
+                <div class="title-wrap">
+                    <h2 class="section-title title-line">Update Image</h2>
+                </div>
+            </div>
+
+            <form  class="profile-form exp-image-form">
+                    <div class="col-12">
+                        <p class="input-sub-title ">Image</p>
+                        <div class="form-file form-group-mb">
+                            <input type="hidden" id="qualify-id" value="" name="expid">
+                            <input class="file-input" name="icons" type="file" id="qualifyimage">
+                            <label class="file-label" for="documentexp"><span>+</span> Add document</label>
+                            <span class="file-name"></span>
+                        </div>
+                        <button type="submit" class="btn btn-action btn-shadow-not">Submit</button>
+                        <button class="btn btn-action btn-shadow-not btn-white btn-cancel" data-dismiss="modal" aria-label="Close">Close</button>
+                    </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(document).ready(function () {
+
+
+    $(".exp-image").click(function(){
+
+        var id = $(this).attr('rel');
+
+        alert(id);
+
+        $("#exp-id").val(id);
+
+       $("#exp-image").modal();
+    });
+
+
+    $(".exp-image-form").submit(function(e){
+             e.preventDefault();
+
+             var formData = new FormData($(this).get(0));
+
+              $.ajax({
+                   url : '{% url 'expimage' %}',
+                   type : 'POST',
+                   data : formData,
+                   processData: false,  // tell jQuery not to process the data
+                   contentType: false,  // tell jQuery not to set contentType
+                   success : function(data) {
+                        window.location.reload();
+                    }
+               });
+    });
+
+
+
+
+
+});
+
+</script>
+
+
 {% endblock %}
+
+
+

@@ -56,6 +56,7 @@ class Qualification(models.Model):
     startyear   = models.CharField(max_length=50)
     endyear     = models.CharField(max_length=50)
     document    = models.FileField(upload_to='documents/')
+    icons       = models.ImageField(upload_to='qualification/',default='qualification/harvard.png')
 
 class Experience(models.Model):
     userid = models.ForeignKey(QuizUser, on_delete=models.CASCADE)
@@ -68,12 +69,36 @@ class Experience(models.Model):
     startyear = models.CharField(max_length=50)
     endyear = models.CharField(max_length=50)
     iscurrent = models.BooleanField(default=False)
-
+    icons = models.ImageField(upload_to='experience/',default='experience/british-airways.png')
 
 
 
 class Quote(models.Model):
     userid = models.ForeignKey(QuizUser,on_delete=models.CASCADE)
+    title  = models.CharField(max_length=100)
+    displines  = models.CharField(max_length=100)
+    price  = models.IntegerField(max_length=100)
+    description  = models.TextField()
+    firstname  = models.CharField(max_length=100)
+    lastname  = models.CharField(max_length=100)
+    email  = models.CharField(max_length=100)
+    wordcount  = models.CharField(max_length=100)
+    document = models.FileField(upload_to="quotes/")
+
+
+class Papper(models.Model):
+    userid = models.ForeignKey(QuizUser, on_delete=models.CASCADE)
+    title = models.CharField(max_length=100)
+    displines = models.CharField(max_length=100)
+    university = models.CharField(max_length=100)
+    description = models.TextField()
+    firstname = models.CharField(max_length=100)
+    lastname = models.CharField(max_length=100)
+    email = models.CharField(max_length=100)
+    wordcount = models.CharField(max_length=100)
+    deadline = models.CharField(max_length=100)
+    document = models.FileField(upload_to="pappers/")
+
 
 
 class Quiz(models.Model):
